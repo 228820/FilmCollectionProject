@@ -46,14 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Navigation.Designer.cs">
       <DependentUpon>Navigation.cs</DependentUpon>
     </Compile>
+    <Compile Include="netDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>netDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation.resx">
       <DependentUpon>Navigation.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +80,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="netDataSet.xsc">
+      <DependentUpon>netDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="netDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>netDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="netDataSet.xss">
+      <DependentUpon>netDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

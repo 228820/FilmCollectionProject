@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FilmCollectionProject
 {
@@ -15,6 +16,8 @@ namespace FilmCollectionProject
         public Navigation()
         {
             InitializeComponent();
+            this.FormClosing += Navigation_FormClosing;
+            
         }
 
         private void filmsBtn_Click(object sender, EventArgs e)
@@ -30,6 +33,9 @@ namespace FilmCollectionProject
         private void categoriesBtn_Click(object sender, EventArgs e)
         {
             Console.WriteLine("categoriesBtn_Click");
+            Form frm = new Categories();
+            //this.Hide();
+            frm.ShowDialog();
         }
 
         private void directorsBtn_Click(object sender, EventArgs e)
@@ -39,7 +45,25 @@ namespace FilmCollectionProject
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("exitBtn_Click");
+            /* Determines whether the user wants to exit the application. */
+            if (MessageBox.Show("Exit application?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes )
+            {
+                // The user wants to exit the application. Close everything down.
+                Application.Exit();
+            }
+        }
+
+        private void Navigation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                /* Determines whether the user wants to exit the application. */
+                if (MessageBox.Show("Exit application?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    // The user wants to exit the application. Close everything down.
+                    Application.Exit();
+                }
+            }
         }
     }
 }
