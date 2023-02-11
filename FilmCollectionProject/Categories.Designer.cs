@@ -64,8 +64,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.backBtn, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
@@ -79,7 +79,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(944, 513);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1182, 553);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -100,7 +100,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 4);
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(371, 507);
+            this.dataGridView1.Size = new System.Drawing.Size(395, 547);
             this.dataGridView1.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -134,9 +134,10 @@
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.Location = new System.Drawing.Point(380, 387);
+            this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.backBtn.Location = new System.Drawing.Point(404, 417);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(561, 123);
+            this.backBtn.Size = new System.Drawing.Size(775, 133);
             this.backBtn.TabIndex = 1;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
@@ -151,21 +152,22 @@
             this.tableLayoutPanel2.Controls.Add(this.lblCategoryToAdd, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.categoryName, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(380, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(404, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(561, 122);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(775, 132);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // addCategoryBtn
             // 
             this.addCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addCategoryBtn.Location = new System.Drawing.Point(377, 3);
+            this.addCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addCategoryBtn.Location = new System.Drawing.Point(519, 3);
             this.addCategoryBtn.Name = "addCategoryBtn";
             this.tableLayoutPanel2.SetRowSpan(this.addCategoryBtn, 2);
-            this.addCategoryBtn.Size = new System.Drawing.Size(181, 116);
+            this.addCategoryBtn.Size = new System.Drawing.Size(253, 126);
             this.addCategoryBtn.TabIndex = 0;
             this.addCategoryBtn.Text = "Add";
             this.addCategoryBtn.UseVisualStyleBackColor = true;
@@ -175,9 +177,10 @@
             // 
             this.lblCategoryToAdd.AutoSize = true;
             this.lblCategoryToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCategoryToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCategoryToAdd.Location = new System.Drawing.Point(3, 0);
             this.lblCategoryToAdd.Name = "lblCategoryToAdd";
-            this.lblCategoryToAdd.Size = new System.Drawing.Size(368, 36);
+            this.lblCategoryToAdd.Size = new System.Drawing.Size(510, 39);
             this.lblCategoryToAdd.TabIndex = 1;
             this.lblCategoryToAdd.Text = "Category Name:";
             this.lblCategoryToAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -185,10 +188,11 @@
             // categoryName
             // 
             this.categoryName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryName.Location = new System.Drawing.Point(3, 39);
+            this.categoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.categoryName.Location = new System.Drawing.Point(3, 42);
             this.categoryName.Multiline = true;
             this.categoryName.Name = "categoryName";
-            this.categoryName.Size = new System.Drawing.Size(368, 80);
+            this.categoryName.Size = new System.Drawing.Size(510, 87);
             this.categoryName.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -202,21 +206,22 @@
             this.tableLayoutPanel3.Controls.Add(this.categoryName2, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.selectedCategory, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(380, 131);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(404, 141);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(561, 122);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(775, 132);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // editCategoryBtn
             // 
             this.editCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editCategoryBtn.Location = new System.Drawing.Point(376, 3);
+            this.editCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editCategoryBtn.Location = new System.Drawing.Point(519, 3);
             this.editCategoryBtn.Name = "editCategoryBtn";
             this.tableLayoutPanel3.SetRowSpan(this.editCategoryBtn, 2);
-            this.editCategoryBtn.Size = new System.Drawing.Size(182, 116);
+            this.editCategoryBtn.Size = new System.Drawing.Size(253, 126);
             this.editCategoryBtn.TabIndex = 0;
             this.editCategoryBtn.Text = "Edit";
             this.editCategoryBtn.UseVisualStyleBackColor = true;
@@ -226,9 +231,10 @@
             // 
             this.lblCategorySelected.AutoSize = true;
             this.lblCategorySelected.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCategorySelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCategorySelected.Location = new System.Drawing.Point(3, 0);
             this.lblCategorySelected.Name = "lblCategorySelected";
-            this.lblCategorySelected.Size = new System.Drawing.Size(180, 36);
+            this.lblCategorySelected.Size = new System.Drawing.Size(252, 39);
             this.lblCategorySelected.TabIndex = 1;
             this.lblCategorySelected.Text = "Select Category To Edit:";
             this.lblCategorySelected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -237,20 +243,22 @@
             // 
             this.tableLayoutPanel3.SetColumnSpan(this.categoryName2, 2);
             this.categoryName2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryName2.Location = new System.Drawing.Point(3, 39);
+            this.categoryName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.categoryName2.Location = new System.Drawing.Point(3, 42);
             this.categoryName2.Multiline = true;
             this.categoryName2.Name = "categoryName2";
-            this.categoryName2.Size = new System.Drawing.Size(367, 80);
+            this.categoryName2.Size = new System.Drawing.Size(510, 87);
             this.categoryName2.TabIndex = 2;
             // 
             // selectedCategory
             // 
             this.selectedCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectedCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedCategory.FormattingEnabled = true;
-            this.selectedCategory.Location = new System.Drawing.Point(189, 3);
+            this.selectedCategory.Location = new System.Drawing.Point(261, 3);
             this.selectedCategory.Name = "selectedCategory";
-            this.selectedCategory.Size = new System.Drawing.Size(181, 24);
+            this.selectedCategory.Size = new System.Drawing.Size(252, 28);
             this.selectedCategory.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -262,21 +270,22 @@
             this.tableLayoutPanel4.Controls.Add(this.lblCategoryToRemove, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.selectedCategory2, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(380, 259);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(404, 279);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(561, 122);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(775, 132);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // removeCategoryBtn
             // 
             this.removeCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.removeCategoryBtn.Location = new System.Drawing.Point(377, 3);
+            this.removeCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.removeCategoryBtn.Location = new System.Drawing.Point(519, 3);
             this.removeCategoryBtn.Name = "removeCategoryBtn";
             this.tableLayoutPanel4.SetRowSpan(this.removeCategoryBtn, 2);
-            this.removeCategoryBtn.Size = new System.Drawing.Size(181, 116);
+            this.removeCategoryBtn.Size = new System.Drawing.Size(253, 126);
             this.removeCategoryBtn.TabIndex = 0;
             this.removeCategoryBtn.Text = "Remove";
             this.removeCategoryBtn.UseVisualStyleBackColor = true;
@@ -286,20 +295,22 @@
             // 
             this.lblCategoryToRemove.AutoSize = true;
             this.lblCategoryToRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCategoryToRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCategoryToRemove.Location = new System.Drawing.Point(3, 0);
             this.lblCategoryToRemove.Name = "lblCategoryToRemove";
-            this.lblCategoryToRemove.Size = new System.Drawing.Size(368, 61);
+            this.lblCategoryToRemove.Size = new System.Drawing.Size(510, 66);
             this.lblCategoryToRemove.TabIndex = 1;
-            this.lblCategoryToRemove.Text = "Selecet Category To Remove:";
+            this.lblCategoryToRemove.Text = "Select Category To Remove:";
             this.lblCategoryToRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // selectedCategory2
             // 
             this.selectedCategory2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selectedCategory2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedCategory2.FormattingEnabled = true;
-            this.selectedCategory2.Location = new System.Drawing.Point(3, 64);
+            this.selectedCategory2.Location = new System.Drawing.Point(3, 69);
             this.selectedCategory2.Name = "selectedCategory2";
-            this.selectedCategory2.Size = new System.Drawing.Size(368, 24);
+            this.selectedCategory2.Size = new System.Drawing.Size(510, 28);
             this.selectedCategory2.TabIndex = 2;
             // 
             // categoryTableAdapter
@@ -315,7 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 513);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Categories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

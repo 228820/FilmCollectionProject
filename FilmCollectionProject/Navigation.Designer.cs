@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1182, 553);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // filmsBtn
@@ -63,7 +63,7 @@
             this.filmsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.filmsBtn.Location = new System.Drawing.Point(3, 3);
             this.filmsBtn.Name = "filmsBtn";
-            this.filmsBtn.Size = new System.Drawing.Size(260, 219);
+            this.filmsBtn.Size = new System.Drawing.Size(387, 270);
             this.filmsBtn.TabIndex = 0;
             this.filmsBtn.Text = "Films";
             this.filmsBtn.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@
             // 
             this.actorsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actorsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.actorsBtn.Location = new System.Drawing.Point(269, 3);
+            this.actorsBtn.Location = new System.Drawing.Point(396, 3);
             this.actorsBtn.Name = "actorsBtn";
-            this.actorsBtn.Size = new System.Drawing.Size(260, 219);
+            this.actorsBtn.Size = new System.Drawing.Size(387, 270);
             this.actorsBtn.TabIndex = 1;
             this.actorsBtn.Text = "Actors";
             this.actorsBtn.UseVisualStyleBackColor = true;
@@ -85,10 +85,10 @@
             // 
             this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exitBtn.Location = new System.Drawing.Point(535, 3);
+            this.exitBtn.Location = new System.Drawing.Point(789, 3);
             this.exitBtn.Name = "exitBtn";
             this.tableLayoutPanel1.SetRowSpan(this.exitBtn, 2);
-            this.exitBtn.Size = new System.Drawing.Size(262, 444);
+            this.exitBtn.Size = new System.Drawing.Size(390, 547);
             this.exitBtn.TabIndex = 2;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -98,9 +98,9 @@
             // 
             this.categoriesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoriesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.categoriesBtn.Location = new System.Drawing.Point(3, 228);
+            this.categoriesBtn.Location = new System.Drawing.Point(3, 279);
             this.categoriesBtn.Name = "categoriesBtn";
-            this.categoriesBtn.Size = new System.Drawing.Size(260, 219);
+            this.categoriesBtn.Size = new System.Drawing.Size(387, 271);
             this.categoriesBtn.TabIndex = 3;
             this.categoriesBtn.Text = "Categories";
             this.categoriesBtn.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             // 
             this.directorsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directorsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.directorsBtn.Location = new System.Drawing.Point(269, 228);
+            this.directorsBtn.Location = new System.Drawing.Point(396, 279);
             this.directorsBtn.Name = "directorsBtn";
-            this.directorsBtn.Size = new System.Drawing.Size(260, 219);
+            this.directorsBtn.Size = new System.Drawing.Size(387, 271);
             this.directorsBtn.TabIndex = 4;
             this.directorsBtn.Text = "Directors";
             this.directorsBtn.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Navigation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
