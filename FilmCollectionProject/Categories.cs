@@ -64,19 +64,6 @@ namespace FilmCollectionProject
             }
         }
 
-        private bool IsCategoryNameToRemoveValid()
-        {
-            if ((string)this.selectedCategory2.SelectedItem == "" || this.selectedCategory2.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please enter a name.", "Info");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
         private bool IsCategoryNameToAddValid()
         {
             if (this.categoryName.Text == "")
@@ -103,7 +90,7 @@ namespace FilmCollectionProject
         private bool IsCategoryNameToEditValid() {
             if ((string)this.selectedCategory.SelectedItem == "" || this.selectedCategory.SelectedIndex == -1)
             {
-                MessageBox.Show("Please enter a name.", "Info");
+                MessageBox.Show("Please select a category.", "Info");
                 return false;
             } else
             {
@@ -129,6 +116,19 @@ namespace FilmCollectionProject
             }
         }
 
+        private bool IsCategoryNameToRemoveValid()
+        {
+            if ((string)this.selectedCategory2.SelectedItem == "" || this.selectedCategory2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a category.", "Info");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void addCategoryBtn_Click(object sender, EventArgs e)
         {
             String categoryName = this.categoryName.Text;
@@ -138,11 +138,7 @@ namespace FilmCollectionProject
                 {
                     try
                     {
-                        Console.WriteLine("\nQuery data example:");
-                        Console.WriteLine("=========================================\n");
-
                         connection.Open();
-
                         String sql = "INSERT INTO category(name) VALUES(@name)";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
@@ -177,11 +173,7 @@ namespace FilmCollectionProject
                 {
                     try
                     {
-                        Console.WriteLine("\nQuery data example:");
-                        Console.WriteLine("=========================================\n");
-
                         connection.Open();
-
                         String sql = "UPDATE category SET name = @name WHERE name = @selectedName";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
@@ -191,6 +183,7 @@ namespace FilmCollectionProject
                             command.Parameters["@selectedName"].Value = selectedCategory;
                             command.ExecuteReader();
                             this.categoryName2.Text = "";
+                            this.selectedCategory.SelectedIndex = -1;
                         }
 
                     }
@@ -217,11 +210,7 @@ namespace FilmCollectionProject
                 {
                     try
                     {
-                        Console.WriteLine("\nQuery data example:");
-                        Console.WriteLine("=========================================\n");
-
                         connection.Open();
-
                         String sql = "DELETE FROM category where name = @name";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
@@ -248,7 +237,7 @@ namespace FilmCollectionProject
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
