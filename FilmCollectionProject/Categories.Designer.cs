@@ -31,34 +31,34 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.netDataSet = new FilmCollectionProject.netDataSet();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.categoryTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.netDataSet = new FilmCollectionProject.netDataSet();
             this.backBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.addCategoryBtn = new System.Windows.Forms.Button();
+            this.lblCategoryToAdd = new System.Windows.Forms.Label();
+            this.categoryName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.netDataSet1 = new FilmCollectionProject.netDataSet();
             this.editCategoryBtn = new System.Windows.Forms.Button();
             this.lblCategorySelected = new System.Windows.Forms.Label();
             this.categoryName2 = new System.Windows.Forms.TextBox();
             this.selectedCategory = new System.Windows.Forms.ComboBox();
-            this.addCategoryBtn = new System.Windows.Forms.Button();
-            this.lblCategoryToAdd = new System.Windows.Forms.Label();
-            this.categoryName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.removeCategoryBtn = new System.Windows.Forms.Button();
             this.lblCategoryToRemove = new System.Windows.Forms.Label();
             this.selectedCategory2 = new System.Windows.Forms.ComboBox();
+            this.categoryTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.categoryTableAdapter();
+            this.netDataSet1 = new FilmCollectionProject.netDataSet();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.netDataSet1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.netDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,20 +103,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(371, 507);
             this.dataGridView1.TabIndex = 0;
             // 
-            // netDataSet
-            // 
-            this.netDataSet.DataSetName = "netDataSet";
-            this.netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataMember = "category";
-            this.categoryBindingSource.DataSource = this.netDataSet;
-            // 
-            // categoryTableAdapter
-            // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -135,6 +121,16 @@
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "category";
+            this.categoryBindingSource.DataSource = this.netDataSet;
+            // 
+            // netDataSet
+            // 
+            this.netDataSet.DataSetName = "netDataSet";
+            this.netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,6 +140,7 @@
             this.backBtn.TabIndex = 1;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -161,6 +158,38 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(561, 122);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // addCategoryBtn
+            // 
+            this.addCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addCategoryBtn.Location = new System.Drawing.Point(377, 3);
+            this.addCategoryBtn.Name = "addCategoryBtn";
+            this.tableLayoutPanel2.SetRowSpan(this.addCategoryBtn, 2);
+            this.addCategoryBtn.Size = new System.Drawing.Size(181, 116);
+            this.addCategoryBtn.TabIndex = 0;
+            this.addCategoryBtn.Text = "Add";
+            this.addCategoryBtn.UseVisualStyleBackColor = true;
+            this.addCategoryBtn.Click += new System.EventHandler(this.addCategoryBtn_Click);
+            // 
+            // lblCategoryToAdd
+            // 
+            this.lblCategoryToAdd.AutoSize = true;
+            this.lblCategoryToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCategoryToAdd.Location = new System.Drawing.Point(3, 0);
+            this.lblCategoryToAdd.Name = "lblCategoryToAdd";
+            this.lblCategoryToAdd.Size = new System.Drawing.Size(368, 36);
+            this.lblCategoryToAdd.TabIndex = 1;
+            this.lblCategoryToAdd.Text = "Category Name:";
+            this.lblCategoryToAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // categoryName
+            // 
+            this.categoryName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryName.Location = new System.Drawing.Point(3, 39);
+            this.categoryName.Multiline = true;
+            this.categoryName.Name = "categoryName";
+            this.categoryName.Size = new System.Drawing.Size(368, 80);
+            this.categoryName.TabIndex = 2;
             // 
             // tableLayoutPanel3
             // 
@@ -181,11 +210,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(561, 122);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // netDataSet1
-            // 
-            this.netDataSet1.DataSetName = "netDataSet";
-            this.netDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // editCategoryBtn
             // 
             this.editCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -196,6 +220,7 @@
             this.editCategoryBtn.TabIndex = 0;
             this.editCategoryBtn.Text = "Edit";
             this.editCategoryBtn.UseVisualStyleBackColor = true;
+            this.editCategoryBtn.Click += new System.EventHandler(this.editCategoryBtn_Click);
             // 
             // lblCategorySelected
             // 
@@ -223,45 +248,10 @@
             this.selectedCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectedCategory.FormattingEnabled = true;
-            this.selectedCategory.Items.AddRange(new object[] {
-            "Comedy",
-            "Fantasy",
-            "Drama"});
             this.selectedCategory.Location = new System.Drawing.Point(189, 3);
             this.selectedCategory.Name = "selectedCategory";
             this.selectedCategory.Size = new System.Drawing.Size(181, 24);
             this.selectedCategory.TabIndex = 3;
-            // 
-            // addCategoryBtn
-            // 
-            this.addCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addCategoryBtn.Location = new System.Drawing.Point(377, 3);
-            this.addCategoryBtn.Name = "addCategoryBtn";
-            this.tableLayoutPanel2.SetRowSpan(this.addCategoryBtn, 2);
-            this.addCategoryBtn.Size = new System.Drawing.Size(181, 116);
-            this.addCategoryBtn.TabIndex = 0;
-            this.addCategoryBtn.Text = "Add";
-            this.addCategoryBtn.UseVisualStyleBackColor = true;
-            // 
-            // lblCategoryToAdd
-            // 
-            this.lblCategoryToAdd.AutoSize = true;
-            this.lblCategoryToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCategoryToAdd.Location = new System.Drawing.Point(3, 0);
-            this.lblCategoryToAdd.Name = "lblCategoryToAdd";
-            this.lblCategoryToAdd.Size = new System.Drawing.Size(368, 36);
-            this.lblCategoryToAdd.TabIndex = 1;
-            this.lblCategoryToAdd.Text = "Category Name:";
-            this.lblCategoryToAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // categoryName
-            // 
-            this.categoryName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryName.Location = new System.Drawing.Point(3, 39);
-            this.categoryName.Multiline = true;
-            this.categoryName.Name = "categoryName";
-            this.categoryName.Size = new System.Drawing.Size(368, 80);
-            this.categoryName.TabIndex = 2;
             // 
             // tableLayoutPanel4
             // 
@@ -290,6 +280,7 @@
             this.removeCategoryBtn.TabIndex = 0;
             this.removeCategoryBtn.Text = "Remove";
             this.removeCategoryBtn.UseVisualStyleBackColor = true;
+            this.removeCategoryBtn.Click += new System.EventHandler(this.removeCategoryBtn_Click);
             // 
             // lblCategoryToRemove
             // 
@@ -306,14 +297,19 @@
             // 
             this.selectedCategory2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedCategory2.FormattingEnabled = true;
-            this.selectedCategory2.Items.AddRange(new object[] {
-            "Horror",
-            "Comedy",
-            "Fantasy"});
             this.selectedCategory2.Location = new System.Drawing.Point(3, 64);
             this.selectedCategory2.Name = "selectedCategory2";
             this.selectedCategory2.Size = new System.Drawing.Size(368, 24);
             this.selectedCategory2.TabIndex = 2;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // netDataSet1
+            // 
+            this.netDataSet1.DataSetName = "netDataSet";
+            this.netDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Categories
             // 
@@ -327,15 +323,15 @@
             this.Load += new System.EventHandler(this.Categories_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.netDataSet1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.netDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
