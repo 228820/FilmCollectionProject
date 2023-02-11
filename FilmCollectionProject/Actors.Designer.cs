@@ -155,6 +155,7 @@
             this.backBtn.TabIndex = 1;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -184,6 +185,7 @@
             this.removeActorBtn.TabIndex = 0;
             this.removeActorBtn.Text = "Remove";
             this.removeActorBtn.UseVisualStyleBackColor = true;
+            this.removeActorBtn.Click += new System.EventHandler(this.removeActorBtn_Click);
             // 
             // lblActorToRemove
             // 
@@ -201,10 +203,11 @@
             // 
             this.selectedActor2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedActor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectedActor2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedActor2.FormattingEnabled = true;
             this.selectedActor2.Location = new System.Drawing.Point(3, 69);
             this.selectedActor2.Name = "selectedActor2";
-            this.selectedActor2.Size = new System.Drawing.Size(298, 24);
+            this.selectedActor2.Size = new System.Drawing.Size(298, 28);
             this.selectedActor2.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -262,6 +265,7 @@
             this.addActorBtn.TabIndex = 2;
             this.addActorBtn.Text = "Add";
             this.addActorBtn.UseVisualStyleBackColor = true;
+            this.addActorBtn.Click += new System.EventHandler(this.addActorBtn_Click);
             // 
             // actorFirstNameToAdd
             // 
@@ -316,6 +320,7 @@
             this.editActorBtn.TabIndex = 0;
             this.editActorBtn.Text = "Edit";
             this.editActorBtn.UseVisualStyleBackColor = true;
+            this.editActorBtn.Click += new System.EventHandler(this.editActorBtn_Click);
             // 
             // actorTableAdapter
             // 
@@ -381,6 +386,7 @@
             // 
             this.selectedActor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectedActor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectedActor.DropDownWidth = 150;
             this.selectedActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedActor.FormattingEnabled = true;
             this.selectedActor.Location = new System.Drawing.Point(3, 69);
@@ -395,6 +401,7 @@
             this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Actors";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actors";
             this.Load += new System.EventHandler(this.Actors_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
