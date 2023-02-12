@@ -27,23 +27,20 @@ namespace FilmCollectionProject
 
         private void actorsBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("actorsBtn_Click");
             Form frm = new Actors();
-            //this.Hide();
             frm.ShowDialog();
         }
 
         private void categoriesBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("categoriesBtn_Click");
             Form frm = new Categories();
-            //this.Hide();
             frm.ShowDialog();
         }
 
         private void directorsBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("directorsBtn_Click");
+            Form frm = new Directors();
+            frm.ShowDialog();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -54,6 +51,7 @@ namespace FilmCollectionProject
                 // The user wants to exit the application. Close everything down.
                 Application.Exit();
             }
+      
         }
 
         private void Navigation_FormClosing(object sender, FormClosingEventArgs e)
@@ -65,6 +63,10 @@ namespace FilmCollectionProject
                 {
                     // The user wants to exit the application. Close everything down.
                     Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
                 }
             }
         }

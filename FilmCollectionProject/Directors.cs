@@ -12,31 +12,33 @@ using System.Windows.Forms;
 
 namespace FilmCollectionProject
 {
-    public partial class Actors : Form
+    public partial class Directors : Form
     {
         private String connectionString;
 
-        public Actors()
+        public Directors()
         {
             InitializeComponent();
             this.Load += InitComboBoxes;
             this.connectionString = ConfigurationManager.ConnectionStrings["FilmCollectionProject.Properties.Settings.netConnectionString"].ConnectionString;
+
         }
 
-        private void Actors_Load(object sender, EventArgs e)
+        private void Directors_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'netDataSet.actor' table. You can move, or remove it, as needed.
-            this.actorTableAdapter.Fill(this.netDataSet.actor);
+            // TODO: This line of code loads data into the 'netDataSet.director' table. You can move, or remove it, as needed.
+            this.directorTableAdapter.Fill(this.netDataSet.director);
+
         }
 
         private void InitComboBoxes(object sender, EventArgs e)
         {
-            FilmCollectionProject.netDataSet.actorRow[] actorsNameArray = this.netDataSet.actor.ToArray();
-            int length = actorsNameArray.Length;
+            FilmCollectionProject.netDataSet.directorRow[] directorsNameArray = this.netDataSet.director.ToArray();
+            int length = directorsNameArray.Length;
             for (int i = 0; i < length; i++)
             {
-                this.selectedActor.Items.Add(actorsNameArray[i].first_name + ' ' + actorsNameArray[i].last_name);
-                this.selectedActor2.Items.Add(actorsNameArray[i].first_name + ' ' + actorsNameArray[i].last_name);
+                this.selectedDirector.Items.Add(directorsNameArray[i].first_name + ' ' + directorsNameArray[i].last_name);
+                this.selectedDirector2.Items.Add(directorsNameArray[i].first_name + ' ' + directorsNameArray[i].last_name);
             }
         }
 
@@ -44,36 +46,36 @@ namespace FilmCollectionProject
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
-                String sql = "SELECT * from actor";
+                String sql = "SELECT * from director";
                 SqlDataAdapter SDA = new SqlDataAdapter(sql, connection);
                 DataSet DS = new System.Data.DataSet();
                 SDA.Fill(DS, "actor");
                 this.dataGridView1.DataSource = DS.Tables[0];
 
-                this.selectedActor.Items.Clear();
-                this.selectedActor2.Items.Clear();
+                this.selectedDirector.Items.Clear();
+                this.selectedDirector2.Items.Clear();
                 foreach (DataRow row in DS.Tables[0].Rows)
                 {
-                    this.selectedActor.Items.Add((String)row.ItemArray[1] + ' ' + row.ItemArray[2]);
-                    this.selectedActor2.Items.Add((String)row.ItemArray[1] + ' ' + row.ItemArray[2]);
+                    this.selectedDirector.Items.Add((String)row.ItemArray[1] + ' ' + row.ItemArray[2]);
+                    this.selectedDirector2.Items.Add((String)row.ItemArray[1] + ' ' + row.ItemArray[2]);
                 }
             }
         }
 
-        private bool IsActorToAddValid()
+        private bool IsDirectorToAddValid()
         {
-            if (this.actorFirstNameToAdd.Text == "" || this.actorLastNameToAdd.Text == "")
+            if (this.directorFirstNameToAdd.Text == "" || this.directorLastNameToAdd.Text == "")
             {
-                MessageBox.Show("Please enter an actor.", "Info");
+                MessageBox.Show("Please enter a director.", "Info");
                 return false;
             }
             else
             {
-                String firstName = char.ToUpper(this.actorFirstNameToAdd.Text[0]) + this.actorFirstNameToAdd.Text?.Substring(1);
-                String lastName = char.ToUpper(this.actorLastNameToAdd.Text[0]) + this.actorLastNameToAdd.Text?.Substring(1);
-                if (this.selectedActor.Items.IndexOf(firstName + ' ' + lastName) != -1)
+                String firstName = char.ToUpper(this.directorFirstNameToAdd.Text[0]) + this.directorFirstNameToAdd.Text?.Substring(1);
+                String lastName = char.ToUpper(this.directorLastNameToAdd.Text[0]) + this.directorLastNameToAdd.Text?.Substring(1);
+                if (this.selectedDirector.Items.IndexOf(firstName + ' ' + lastName) != -1)
                 {
-                    MessageBox.Show("Please enter a different actor. This one already exists in db.", "Info");
+                    MessageBox.Show("Please enter a different director. This one already exists in db.", "Info");
                     return false;
                 }
                 else
@@ -84,27 +86,27 @@ namespace FilmCollectionProject
             }
         }
 
-        private bool IsActorToEditValid()
+        private bool IsDirectorToEditValid()
         {
-            if ((string)this.selectedActor.SelectedItem == "" || this.selectedActor.SelectedIndex == -1)
+            if ((string)this.selectedDirector.SelectedItem == "" || this.selectedDirector.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select an actor.", "Info");
+                MessageBox.Show("Please select a director.", "Info");
                 return false;
-            } 
+            }
             else
             {
-                if (this.actorFirstNameToEdit.Text == "" || this.actorLastNameToEdit.Text == "")
+                if (this.directorFirstNameToEdit.Text == "" || this.directorLastNameToEdit.Text == "")
                 {
                     MessageBox.Show("Please enter an actor.", "Info");
                     return false;
                 }
                 else
                 {
-                    String firstName = char.ToUpper(this.actorFirstNameToEdit.Text[0]) + this.actorFirstNameToEdit.Text?.Substring(1);
-                    String lastName = char.ToUpper(this.actorLastNameToEdit.Text[0]) + this.actorLastNameToEdit.Text?.Substring(1);
-                    if (this.selectedActor.Items.IndexOf(firstName + ' ' + lastName) != -1)
+                    String firstName = char.ToUpper(this.directorFirstNameToEdit.Text[0]) + this.directorFirstNameToEdit.Text?.Substring(1);
+                    String lastName = char.ToUpper(this.directorLastNameToEdit.Text[0]) + this.directorLastNameToEdit.Text?.Substring(1);
+                    if (this.selectedDirector.Items.IndexOf(firstName + ' ' + lastName) != -1)
                     {
-                        MessageBox.Show("Please enter a different actor. This one already exists in db.", "Info");
+                        MessageBox.Show("Please enter a different director. This one already exists in db.", "Info");
                         return false;
                     }
                     else
@@ -116,11 +118,11 @@ namespace FilmCollectionProject
             }
         }
 
-        private bool IsActorToRemoveValid()
+        private bool IsDirectorToRemoveValid()
         {
-            if ((string)this.selectedActor2.SelectedItem == "" || this.selectedActor2.SelectedIndex == -1)
+            if ((string)this.selectedDirector2.SelectedItem == "" || this.selectedDirector2.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select an actor.", "Info");
+                MessageBox.Show("Please select a director.", "Info");
                 return false;
             }
             else
@@ -129,18 +131,19 @@ namespace FilmCollectionProject
             }
         }
 
-        private void addActorBtn_Click(object sender, EventArgs e)
+
+        private void addDirectorBtn_Click(object sender, EventArgs e)
         {
-            if(this.IsActorToAddValid())
+            if (this.IsDirectorToAddValid())
             {
-                String firstName = this.actorFirstNameToAdd.Text;
-                String lastName = this.actorLastNameToAdd.Text;
+                String firstName = this.directorFirstNameToAdd.Text;
+                String lastName = this.directorLastNameToAdd.Text;
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
                     {
                         connection.Open();
-                        String sql = "INSERT INTO actor(first_name, last_name) VALUES(@firstName, @lastName)";
+                        String sql = "INSERT INTO director(first_name, last_name) VALUES(@firstName, @lastName)";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
                             command.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
@@ -148,8 +151,8 @@ namespace FilmCollectionProject
                             command.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
                             command.Parameters["@lastName"].Value = lastName;
                             command.ExecuteReader();
-                            this.actorFirstNameToAdd.Text = "";
-                            this.actorLastNameToAdd.Text = "";
+                            this.directorFirstNameToAdd.Text = "";
+                            this.directorLastNameToAdd.Text = "";
                         }
                     }
                     catch (SqlException ee)
@@ -166,21 +169,21 @@ namespace FilmCollectionProject
             }
         }
 
-        private void editActorBtn_Click(object sender, EventArgs e)
+        private void editDirectorBtn_Click(object sender, EventArgs e)
         {
-            String selectedActor = (String)this.selectedActor.SelectedItem;
-            if (this.IsActorToEditValid())
+            String selectedDirector = (String)this.selectedDirector.SelectedItem;
+            if (this.IsDirectorToEditValid())
             {
-                String firstName2 = this.actorFirstNameToEdit.Text;
-                String lastName2 = this.actorLastNameToEdit.Text;
-                String firstName = selectedActor.Split(' ')[0];
-                String lastName = selectedActor.Split(' ')[1];
+                String firstName2 = this.directorFirstNameToEdit.Text;
+                String lastName2 = this.directorLastNameToEdit.Text;
+                String firstName = selectedDirector.Split(' ')[0];
+                String lastName = selectedDirector.Split(' ')[1];
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
                     {
                         connection.Open();
-                        String sql = "UPDATE actor SET first_name = @firstName2, last_name = @lastName2 WHERE first_name = @firstName AND last_name = @lastName";
+                        String sql = "UPDATE director SET first_name = @firstName2, last_name = @lastName2 WHERE first_name = @firstName AND last_name = @lastName";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
                             command.Parameters.Add(new SqlParameter("@firstName2", SqlDbType.VarChar));
@@ -194,8 +197,8 @@ namespace FilmCollectionProject
                             command.Parameters["@lastName"].Value = lastName;
 
                             command.ExecuteReader();
-                            this.actorFirstNameToEdit.Text = "";
-                            this.actorLastNameToEdit.Text = "";
+                            this.directorFirstNameToEdit.Text = "";
+                            this.directorLastNameToEdit.Text = "";
                         }
                     }
                     catch (SqlException ee)
@@ -210,22 +213,21 @@ namespace FilmCollectionProject
                 }
                 this.refreshData();
             }
-
         }
 
-        private void removeActorBtn_Click(object sender, EventArgs e)
+        private void removeDirectorBtn_Click(object sender, EventArgs e)
         {
-            String selectedActor = (String)this.selectedActor2.SelectedItem;
-            if (this.IsActorToRemoveValid())
+            String selectedDirector = (String)this.selectedDirector2.SelectedItem;
+            if (this.IsDirectorToRemoveValid())
             {
-                String firstName = selectedActor.Split(' ')[0];
-                String lastName = selectedActor.Split(' ')[1];
+                String firstName = selectedDirector.Split(' ')[0];
+                String lastName = selectedDirector.Split(' ')[1];
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
                     {
                         connection.Open();
-                        String sql = "DELETE FROM actor where first_name = @firstName And last_name = @lastName";
+                        String sql = "DELETE FROM director where first_name = @firstName And last_name = @lastName";
                         using (SqlCommand command = new SqlCommand(sql, connection))
                         {
                             command.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
@@ -233,7 +235,7 @@ namespace FilmCollectionProject
                             command.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
                             command.Parameters["@lastName"].Value = lastName;
                             command.ExecuteReader();
-                            this.selectedActor2.SelectedIndex = -1;
+                            this.selectedDirector2.SelectedIndex = -1;
                         }
                     }
                     catch (SqlException ee)

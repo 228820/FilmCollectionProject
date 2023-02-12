@@ -49,13 +49,13 @@
             this.actorLastNameToAdd = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.editActorBtn = new System.Windows.Forms.Button();
-            this.actorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.actorTableAdapter();
             this.lblSelectedActor = new System.Windows.Forms.Label();
             this.lblActorToEdit = new System.Windows.Forms.Label();
             this.lblActorToEdit2 = new System.Windows.Forms.Label();
             this.actorLastNameToEdit = new System.Windows.Forms.TextBox();
             this.actorFirstNameToEdit = new System.Windows.Forms.TextBox();
             this.selectedActor = new System.Windows.Forms.ComboBox();
+            this.actorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.actorTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
@@ -77,13 +77,14 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1182, 553);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1330, 691);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -98,14 +99,15 @@
             this.lastnameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.actorBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 4);
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView1.Size = new System.Drawing.Size(561, 547);
+            this.dataGridView1.Size = new System.Drawing.Size(632, 683);
             this.dataGridView1.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -149,9 +151,10 @@
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.backBtn.Location = new System.Drawing.Point(570, 417);
+            this.backBtn.Location = new System.Drawing.Point(641, 520);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(609, 133);
+            this.backBtn.Size = new System.Drawing.Size(686, 167);
             this.backBtn.TabIndex = 1;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
@@ -166,22 +169,24 @@
             this.tableLayoutPanel2.Controls.Add(this.lblActorToRemove, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.selectedActor2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(570, 279);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(641, 348);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(609, 132);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(686, 164);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // removeActorBtn
             // 
             this.removeActorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.removeActorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeActorBtn.Location = new System.Drawing.Point(307, 3);
+            this.removeActorBtn.Location = new System.Drawing.Point(346, 4);
+            this.removeActorBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.removeActorBtn.Name = "removeActorBtn";
             this.tableLayoutPanel2.SetRowSpan(this.removeActorBtn, 2);
-            this.removeActorBtn.Size = new System.Drawing.Size(299, 126);
+            this.removeActorBtn.Size = new System.Drawing.Size(337, 156);
             this.removeActorBtn.TabIndex = 0;
             this.removeActorBtn.Text = "Remove";
             this.removeActorBtn.UseVisualStyleBackColor = true;
@@ -194,7 +199,7 @@
             this.lblActorToRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblActorToRemove.Location = new System.Drawing.Point(3, 0);
             this.lblActorToRemove.Name = "lblActorToRemove";
-            this.lblActorToRemove.Size = new System.Drawing.Size(298, 66);
+            this.lblActorToRemove.Size = new System.Drawing.Size(337, 82);
             this.lblActorToRemove.TabIndex = 1;
             this.lblActorToRemove.Text = "Select Actor To Remove:";
             this.lblActorToRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,9 +210,10 @@
             this.selectedActor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectedActor2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedActor2.FormattingEnabled = true;
-            this.selectedActor2.Location = new System.Drawing.Point(3, 69);
+            this.selectedActor2.Location = new System.Drawing.Point(3, 86);
+            this.selectedActor2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.selectedActor2.Name = "selectedActor2";
-            this.selectedActor2.Size = new System.Drawing.Size(298, 28);
+            this.selectedActor2.Size = new System.Drawing.Size(337, 28);
             this.selectedActor2.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -222,12 +228,13 @@
             this.tableLayoutPanel3.Controls.Add(this.actorFirstNameToAdd, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.actorLastNameToAdd, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(570, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(641, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(609, 132);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 164);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // lblActorToAdd
@@ -237,7 +244,7 @@
             this.lblActorToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblActorToAdd.Location = new System.Drawing.Point(3, 0);
             this.lblActorToAdd.Name = "lblActorToAdd";
-            this.lblActorToAdd.Size = new System.Drawing.Size(196, 66);
+            this.lblActorToAdd.Size = new System.Drawing.Size(222, 82);
             this.lblActorToAdd.TabIndex = 0;
             this.lblActorToAdd.Text = "Actor First Name:";
             this.lblActorToAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -247,9 +254,9 @@
             this.lblActorToAdd2.AutoSize = true;
             this.lblActorToAdd2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblActorToAdd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblActorToAdd2.Location = new System.Drawing.Point(205, 0);
+            this.lblActorToAdd2.Location = new System.Drawing.Point(231, 0);
             this.lblActorToAdd2.Name = "lblActorToAdd2";
-            this.lblActorToAdd2.Size = new System.Drawing.Size(196, 66);
+            this.lblActorToAdd2.Size = new System.Drawing.Size(222, 82);
             this.lblActorToAdd2.TabIndex = 1;
             this.lblActorToAdd2.Text = "Actor Last Name:";
             this.lblActorToAdd2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -258,10 +265,11 @@
             // 
             this.addActorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addActorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addActorBtn.Location = new System.Drawing.Point(407, 3);
+            this.addActorBtn.Location = new System.Drawing.Point(459, 4);
+            this.addActorBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.addActorBtn.Name = "addActorBtn";
             this.tableLayoutPanel3.SetRowSpan(this.addActorBtn, 2);
-            this.addActorBtn.Size = new System.Drawing.Size(199, 126);
+            this.addActorBtn.Size = new System.Drawing.Size(224, 156);
             this.addActorBtn.TabIndex = 2;
             this.addActorBtn.Text = "Add";
             this.addActorBtn.UseVisualStyleBackColor = true;
@@ -271,19 +279,21 @@
             // 
             this.actorFirstNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actorFirstNameToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.actorFirstNameToAdd.Location = new System.Drawing.Point(3, 69);
+            this.actorFirstNameToAdd.Location = new System.Drawing.Point(3, 86);
+            this.actorFirstNameToAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.actorFirstNameToAdd.Multiline = true;
             this.actorFirstNameToAdd.Name = "actorFirstNameToAdd";
-            this.actorFirstNameToAdd.Size = new System.Drawing.Size(196, 60);
+            this.actorFirstNameToAdd.Size = new System.Drawing.Size(222, 74);
             this.actorFirstNameToAdd.TabIndex = 3;
             // 
             // actorLastNameToAdd
             // 
             this.actorLastNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actorLastNameToAdd.Location = new System.Drawing.Point(205, 69);
+            this.actorLastNameToAdd.Location = new System.Drawing.Point(231, 86);
+            this.actorLastNameToAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.actorLastNameToAdd.Multiline = true;
             this.actorLastNameToAdd.Name = "actorLastNameToAdd";
-            this.actorLastNameToAdd.Size = new System.Drawing.Size(196, 60);
+            this.actorLastNameToAdd.Size = new System.Drawing.Size(222, 74);
             this.actorLastNameToAdd.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -301,30 +311,28 @@
             this.tableLayoutPanel4.Controls.Add(this.actorFirstNameToEdit, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.selectedActor, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(570, 141);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(641, 176);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(609, 132);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 164);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // editActorBtn
             // 
             this.editActorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editActorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editActorBtn.Location = new System.Drawing.Point(408, 3);
+            this.editActorBtn.Location = new System.Drawing.Point(459, 4);
+            this.editActorBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.editActorBtn.Name = "editActorBtn";
             this.tableLayoutPanel4.SetRowSpan(this.editActorBtn, 2);
-            this.editActorBtn.Size = new System.Drawing.Size(198, 126);
+            this.editActorBtn.Size = new System.Drawing.Size(224, 156);
             this.editActorBtn.TabIndex = 0;
             this.editActorBtn.Text = "Edit";
             this.editActorBtn.UseVisualStyleBackColor = true;
             this.editActorBtn.Click += new System.EventHandler(this.editActorBtn_Click);
-            // 
-            // actorTableAdapter
-            // 
-            this.actorTableAdapter.ClearBeforeFill = true;
             // 
             // lblSelectedActor
             // 
@@ -333,7 +341,7 @@
             this.lblSelectedActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblSelectedActor.Location = new System.Drawing.Point(3, 0);
             this.lblSelectedActor.Name = "lblSelectedActor";
-            this.lblSelectedActor.Size = new System.Drawing.Size(129, 66);
+            this.lblSelectedActor.Size = new System.Drawing.Size(146, 82);
             this.lblSelectedActor.TabIndex = 1;
             this.lblSelectedActor.Text = "Select Actor To Edit:";
             this.lblSelectedActor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,9 +351,9 @@
             this.lblActorToEdit.AutoSize = true;
             this.lblActorToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblActorToEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblActorToEdit.Location = new System.Drawing.Point(138, 0);
+            this.lblActorToEdit.Location = new System.Drawing.Point(155, 0);
             this.lblActorToEdit.Name = "lblActorToEdit";
-            this.lblActorToEdit.Size = new System.Drawing.Size(129, 66);
+            this.lblActorToEdit.Size = new System.Drawing.Size(146, 82);
             this.lblActorToEdit.TabIndex = 2;
             this.lblActorToEdit.Text = "Actor First Name:";
             this.lblActorToEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -355,9 +363,9 @@
             this.lblActorToEdit2.AutoSize = true;
             this.lblActorToEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblActorToEdit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblActorToEdit2.Location = new System.Drawing.Point(273, 0);
+            this.lblActorToEdit2.Location = new System.Drawing.Point(307, 0);
             this.lblActorToEdit2.Name = "lblActorToEdit2";
-            this.lblActorToEdit2.Size = new System.Drawing.Size(129, 66);
+            this.lblActorToEdit2.Size = new System.Drawing.Size(146, 82);
             this.lblActorToEdit2.TabIndex = 3;
             this.lblActorToEdit2.Text = "Actor Last Name:";
             this.lblActorToEdit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -366,20 +374,22 @@
             // 
             this.actorLastNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actorLastNameToEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.actorLastNameToEdit.Location = new System.Drawing.Point(273, 69);
+            this.actorLastNameToEdit.Location = new System.Drawing.Point(307, 86);
+            this.actorLastNameToEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.actorLastNameToEdit.Multiline = true;
             this.actorLastNameToEdit.Name = "actorLastNameToEdit";
-            this.actorLastNameToEdit.Size = new System.Drawing.Size(129, 60);
+            this.actorLastNameToEdit.Size = new System.Drawing.Size(146, 74);
             this.actorLastNameToEdit.TabIndex = 4;
             // 
             // actorFirstNameToEdit
             // 
             this.actorFirstNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.actorFirstNameToEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.actorFirstNameToEdit.Location = new System.Drawing.Point(138, 69);
+            this.actorFirstNameToEdit.Location = new System.Drawing.Point(155, 86);
+            this.actorFirstNameToEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.actorFirstNameToEdit.Multiline = true;
             this.actorFirstNameToEdit.Name = "actorFirstNameToEdit";
-            this.actorFirstNameToEdit.Size = new System.Drawing.Size(129, 60);
+            this.actorFirstNameToEdit.Size = new System.Drawing.Size(146, 74);
             this.actorFirstNameToEdit.TabIndex = 5;
             // 
             // selectedActor
@@ -389,17 +399,23 @@
             this.selectedActor.DropDownWidth = 150;
             this.selectedActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectedActor.FormattingEnabled = true;
-            this.selectedActor.Location = new System.Drawing.Point(3, 69);
+            this.selectedActor.Location = new System.Drawing.Point(3, 86);
+            this.selectedActor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.selectedActor.Name = "selectedActor";
-            this.selectedActor.Size = new System.Drawing.Size(129, 28);
+            this.selectedActor.Size = new System.Drawing.Size(146, 28);
             this.selectedActor.TabIndex = 6;
+            // 
+            // actorTableAdapter
+            // 
+            this.actorTableAdapter.ClearBeforeFill = true;
             // 
             // Actors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.ClientSize = new System.Drawing.Size(1330, 691);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Actors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actors";
