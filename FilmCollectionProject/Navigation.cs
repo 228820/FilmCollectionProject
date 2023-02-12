@@ -22,7 +22,8 @@ namespace FilmCollectionProject
 
         private void filmsBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("filmsBtn_Click");
+            Form frm = new Films();
+            frm.ShowDialog();
         }
 
         private void actorsBtn_Click(object sender, EventArgs e)

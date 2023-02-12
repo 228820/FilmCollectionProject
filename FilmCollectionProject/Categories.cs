@@ -24,7 +24,6 @@ namespace FilmCollectionProject
             InitializeComponent();
             this.Load += InitComboBoxes;
             this.connectionString = ConfigurationManager.ConnectionStrings["FilmCollectionProject.Properties.Settings.netConnectionString"].ConnectionString;
-
         }
 
         private void Categories_Load(object sender, EventArgs e)

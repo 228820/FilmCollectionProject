@@ -65,6 +65,12 @@
     <Compile Include="Directors.Designer.cs">
       <DependentUpon>Directors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Films.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Films.Designer.cs">
+      <DependentUpon>Films.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Directors.resx">
       <DependentUpon>Directors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Films.resx">
+      <DependentUpon>Films.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation.resx">
       <DependentUpon>Navigation.cs</DependentUpon>
