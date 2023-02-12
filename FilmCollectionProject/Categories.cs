@@ -73,7 +73,7 @@ namespace FilmCollectionProject
             }
             else
             {
-                String categoryName = char.ToUpper(this.categoryName.Text[0]) + this.categoryName.Text?.Substring(1);
+                String categoryName = char.ToUpper(this.categoryName.Text[0]) + this.categoryName.Text?.Substring(1)?.ToUpper();
                 if (this.selectedCategory.Items.IndexOf(categoryName) != -1)
                 {
                     MessageBox.Show("Please enter a different name. This one already exists in db.", "Info");
@@ -101,7 +101,7 @@ namespace FilmCollectionProject
                 }
                 else
                 {
-                    String categoryName = char.ToUpper(this.categoryName2.Text[0]) + this.categoryName2.Text?.Substring(1);
+                    String categoryName = char.ToUpper(this.categoryName2.Text[0]) + this.categoryName2.Text?.Substring(1)?.ToUpper();
                     if (this.selectedCategory.Items.IndexOf(categoryName) != -1)
                     {
                         MessageBox.Show("Please enter a different name. This one already exists in db.", "Info");
@@ -131,7 +131,7 @@ namespace FilmCollectionProject
 
         private void addCategoryBtn_Click(object sender, EventArgs e)
         {
-            String categoryName = this.categoryName.Text;
+            String categoryName = char.ToUpper(this.categoryName.Text[0]) + this.categoryName.Text?.Substring(1)?.ToLower();
             if (this.IsCategoryNameToAddValid())
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -165,7 +165,7 @@ namespace FilmCollectionProject
 
         private void editCategoryBtn_Click(object sender, EventArgs e)
         {
-            String categoryName = this.categoryName2.Text;
+            String categoryName = char.ToUpper(this.categoryName2.Text[0]) + this.categoryName2.Text?.Substring(1)?.ToLower();
             String selectedCategory = (String)this.selectedCategory.SelectedItem;
             if (this.IsCategoryNameToEditValid())
             {

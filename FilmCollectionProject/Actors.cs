@@ -69,8 +69,8 @@ namespace FilmCollectionProject
             }
             else
             {
-                String firstName = char.ToUpper(this.actorFirstNameToAdd.Text[0]) + this.actorFirstNameToAdd.Text?.Substring(1);
-                String lastName = char.ToUpper(this.actorLastNameToAdd.Text[0]) + this.actorLastNameToAdd.Text?.Substring(1);
+                String firstName = char.ToUpper(this.actorFirstNameToAdd.Text[0]) + this.actorFirstNameToAdd.Text?.Substring(1)?.ToUpper();
+                String lastName = char.ToUpper(this.actorLastNameToAdd.Text[0]) + this.actorLastNameToAdd.Text?.Substring(1)?.ToUpper();
                 if (this.selectedActor.Items.IndexOf(firstName + ' ' + lastName) != -1)
                 {
                     MessageBox.Show("Please enter a different actor. This one already exists in db.", "Info");
@@ -100,8 +100,8 @@ namespace FilmCollectionProject
                 }
                 else
                 {
-                    String firstName = char.ToUpper(this.actorFirstNameToEdit.Text[0]) + this.actorFirstNameToEdit.Text?.Substring(1);
-                    String lastName = char.ToUpper(this.actorLastNameToEdit.Text[0]) + this.actorLastNameToEdit.Text?.Substring(1);
+                    String firstName = char.ToUpper(this.actorFirstNameToEdit.Text[0]) + this.actorFirstNameToEdit.Text?.Substring(1)?.ToUpper();
+                    String lastName = char.ToUpper(this.actorLastNameToEdit.Text[0]) + this.actorLastNameToEdit.Text?.Substring(1)?.ToUpper();
                     if (this.selectedActor.Items.IndexOf(firstName + ' ' + lastName) != -1)
                     {
                         MessageBox.Show("Please enter a different actor. This one already exists in db.", "Info");
@@ -133,8 +133,8 @@ namespace FilmCollectionProject
         {
             if(this.IsActorToAddValid())
             {
-                String firstName = this.actorFirstNameToAdd.Text;
-                String lastName = this.actorLastNameToAdd.Text;
+                String firstName = char.ToUpper(this.actorFirstNameToAdd.Text[0]) + this.actorFirstNameToAdd.Text?.Substring(1)?.ToLower();
+                String lastName = char.ToUpper(this.actorLastNameToAdd.Text[0]) + this.actorLastNameToAdd.Text?.Substring(1)?.ToLower();
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
@@ -171,8 +171,8 @@ namespace FilmCollectionProject
             String selectedActor = (String)this.selectedActor.SelectedItem;
             if (this.IsActorToEditValid())
             {
-                String firstName2 = this.actorFirstNameToEdit.Text;
-                String lastName2 = this.actorLastNameToEdit.Text;
+                String firstName2 = char.ToUpper(this.actorFirstNameToEdit.Text[0]) + this.actorFirstNameToEdit.Text?.Substring(1)?.ToLower();
+                String lastName2 = char.ToUpper(this.actorLastNameToEdit.Text[0]) + this.actorLastNameToEdit.Text?.Substring(1)?.ToLower();
                 String firstName = selectedActor.Split(' ')[0];
                 String lastName = selectedActor.Split(' ')[1];
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
