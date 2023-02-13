@@ -37,9 +37,6 @@
             this.lblActors = new System.Windows.Forms.Label();
             this.lblDirectors = new System.Windows.Forms.Label();
             this.lblCategories = new System.Windows.Forms.Label();
-            this.title = new System.Windows.Forms.Label();
-            this.duration = new System.Windows.Forms.Label();
-            this.year = new System.Windows.Forms.Label();
             this.selectedFilm = new System.Windows.Forms.ComboBox();
             this.addFilmBtn = new System.Windows.Forms.Button();
             this.editFilmBtn = new System.Windows.Forms.Button();
@@ -66,6 +63,9 @@
             this.directorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.directorTableAdapter();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.categoryTableAdapter();
+            this.title = new System.Windows.Forms.TextBox();
+            this.duration = new System.Windows.Forms.TextBox();
+            this.year = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
@@ -88,9 +88,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lblActors, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblDirectors, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCategories, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.title, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.duration, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.year, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.selectedFilm, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.addFilmBtn, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.editFilmBtn, 0, 10);
@@ -108,6 +105,9 @@
             this.tableLayoutPanel1.Controls.Add(this.selectedDirector, 2, 10);
             this.tableLayoutPanel1.Controls.Add(this.selectedCategory, 3, 10);
             this.tableLayoutPanel1.Controls.Add(this.backBtn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.title, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.duration, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.year, 0, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -211,42 +211,6 @@
             this.lblCategories.Text = "Categories:";
             this.lblCategories.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.title.Location = new System.Drawing.Point(3, 227);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(326, 55);
-            this.title.TabIndex = 8;
-            this.title.Text = "-";
-            this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // duration
-            // 
-            this.duration.AutoSize = true;
-            this.duration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.duration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.duration.Location = new System.Drawing.Point(3, 337);
-            this.duration.Name = "duration";
-            this.duration.Size = new System.Drawing.Size(326, 55);
-            this.duration.TabIndex = 9;
-            this.duration.Text = "-";
-            this.duration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // year
-            // 
-            this.year.AutoSize = true;
-            this.year.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.year.Location = new System.Drawing.Point(3, 447);
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(326, 55);
-            this.year.TabIndex = 10;
-            this.year.Text = "-";
-            this.year.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // selectedFilm
             // 
             this.selectedFilm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -275,12 +239,13 @@
             // editFilmBtn
             // 
             this.editFilmBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editFilmBtn.Enabled = false;
             this.editFilmBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editFilmBtn.Location = new System.Drawing.Point(3, 567);
             this.editFilmBtn.Name = "editFilmBtn";
             this.editFilmBtn.Size = new System.Drawing.Size(326, 56);
             this.editFilmBtn.TabIndex = 13;
-            this.editFilmBtn.Text = "Edit Film";
+            this.editFilmBtn.Text = "Start Editing Film";
             this.editFilmBtn.UseVisualStyleBackColor = true;
             this.editFilmBtn.Click += new System.EventHandler(this.editFilmBtn_Click);
             // 
@@ -335,6 +300,7 @@
             // removeActorBtn
             // 
             this.removeActorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeActorBtn.Enabled = false;
             this.removeActorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.removeActorBtn.Location = new System.Drawing.Point(335, 505);
             this.removeActorBtn.Name = "removeActorBtn";
@@ -347,6 +313,7 @@
             // removeDirectorBtn
             // 
             this.removeDirectorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeDirectorBtn.Enabled = false;
             this.removeDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.removeDirectorBtn.Location = new System.Drawing.Point(667, 505);
             this.removeDirectorBtn.Name = "removeDirectorBtn";
@@ -359,6 +326,7 @@
             // removeCategoryBtn
             // 
             this.removeCategoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeCategoryBtn.Enabled = false;
             this.removeCategoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.removeCategoryBtn.Location = new System.Drawing.Point(999, 505);
             this.removeCategoryBtn.Name = "removeCategoryBtn";
@@ -490,6 +458,43 @@
             // 
             this.categoryTableAdapter.ClearBeforeFill = true;
             // 
+            // title
+            // 
+            this.title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.title.Location = new System.Drawing.Point(3, 230);
+            this.title.Multiline = true;
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(326, 49);
+            this.title.TabIndex = 28;
+            this.title.Text = "-";
+            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // duration
+            // 
+            this.duration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.duration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.duration.Location = new System.Drawing.Point(3, 340);
+            this.duration.Multiline = true;
+            this.duration.Name = "duration";
+            this.duration.Size = new System.Drawing.Size(326, 49);
+            this.duration.TabIndex = 29;
+            this.duration.Text = "-";
+            this.duration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // year
+            // 
+            this.year.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.year.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.year.Location = new System.Drawing.Point(3, 450);
+            this.year.Multiline = true;
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(326, 49);
+            this.year.TabIndex = 30;
+            this.year.Text = "-";
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Films
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -521,9 +526,6 @@
         private System.Windows.Forms.Label lblActors;
         private System.Windows.Forms.Label lblDirectors;
         private System.Windows.Forms.Label lblCategories;
-        private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label duration;
-        private System.Windows.Forms.Label year;
         private System.Windows.Forms.ComboBox selectedFilm;
         private System.Windows.Forms.Button addFilmBtn;
         private System.Windows.Forms.Button editFilmBtn;
@@ -550,5 +552,8 @@
         private netDataSetTableAdapters.directorTableAdapter directorTableAdapter;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private netDataSetTableAdapters.categoryTableAdapter categoryTableAdapter;
+        private System.Windows.Forms.TextBox title;
+        private System.Windows.Forms.TextBox duration;
+        private System.Windows.Forms.TextBox year;
     }
 }

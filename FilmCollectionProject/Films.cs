@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace FilmCollectionProject
 {
@@ -29,11 +30,6 @@ namespace FilmCollectionProject
             netDataSet.actorRow[] actorsNameArray = this.netDataSet.actor.ToArray();
             netDataSet.directorRow[] directorsNameArray = this.netDataSet.director.ToArray();
             netDataSet.categoryRow[] categoriesNameArray = this.netDataSet.category.ToArray();
-
-            Console.WriteLine("filmsNameArray.Length: " + filmsNameArray.Length);
-            Console.WriteLine("actorsNameArray.Length: " + actorsNameArray.Length);
-
-
 
             for (int i = 0; i < filmsNameArray.Length; i++)
             {
@@ -57,6 +53,159 @@ namespace FilmCollectionProject
         }
 
 
+        private void refreshData()
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                String sql = "SELECT * from film";
+                SqlDataAdapter SDA = new SqlDataAdapter(sql, connection);
+                DataSet DS = new System.Data.DataSet();
+                SDA.Fill(DS, "film");
+                this.selectedFilm.Items.Clear();
+                foreach (DataRow row in DS.Tables[0].Rows)
+                {
+                    this.selectedFilm.Items.Add(row.ItemArray[2]);
+                }
+            }
+        }
+
+        private void resetControls()
+        {
+            this.title.Text = "";
+            this.duration.Text = "";
+            this.year.Text = "";
+
+            this.actorsList.Items.Clear();
+            this.directorsList.Items.Clear();
+            this.categoriesList.Items.Clear();
+
+            this.title.ReadOnly = false;
+            this.duration.ReadOnly = false;
+            this.year.ReadOnly = false;
+        }
+
+
+        private bool IsFilmToRemoveValid()
+        {
+            if ((string)this.selectedFilm.SelectedItem == "" || this.selectedFilm.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a film.", "Info");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsActorToAddValid()
+        {
+            if ((string)this.selectedActor.SelectedItem == "" || this.selectedActor.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an actor.", "Info");
+                return false;
+            }
+            else
+            {
+                String selectedActor = (String)this.selectedActor.SelectedItem;
+                if (this.actorsList.Items.IndexOf(selectedActor) != -1)
+                {
+                    MessageBox.Show("Please select a different actor. This one already exists on actors list.", "Info");
+                    return false;
+                }
+                else
+                {
+                    return true;
+
+                }
+            }
+        }
+
+        private bool IsActorToRemoveValid()
+        {
+            if ((string)this.actorsList.SelectedItem == "" || this.actorsList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an actor.", "Info");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsDirectorToAddValid()
+        {
+            if ((string)this.selectedDirector.SelectedItem == "" || this.selectedDirector.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an director.", "Info");
+                return false;
+            }
+            else
+            {
+                String selectedDirector = (String)this.selectedDirector.SelectedItem;
+                if (this.directorsList.Items.IndexOf(selectedDirector) != -1)
+                {
+                    MessageBox.Show("Please select a different director. This one already exists on directors list.", "Info");
+                    return false;
+                }
+                else
+                {
+                    return true;
+
+                }
+            }
+        }
+
+        private bool IsDirectorToRemoveValid()
+        {
+            if ((string)this.directorsList.SelectedItem == "" || this.directorsList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a director.", "Info");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsCategoryToAddValid()
+        {
+            if ((string)this.selectedCategory.SelectedItem == "" || this.selectedCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a category.", "Info");
+                return false;
+            }
+            else
+            {
+                String selectedCategory = (String)this.selectedCategory.SelectedItem;
+                if (this.categoriesList.Items.IndexOf(selectedCategory) != -1)
+                {
+                    MessageBox.Show("Please select a different category. This one already exists on categories list.", "Info");
+                    return false;
+                }
+                else
+                {
+                    return true;
+
+                }
+            }
+        }
+
+        private bool IsCategoryToRemoveValid()
+        {
+            if ((string)this.categoriesList.SelectedItem == "" || this.categoriesList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a category.", "Info");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -64,47 +213,161 @@ namespace FilmCollectionProject
 
         private void addFilmBtn_Click(object sender, EventArgs e)
         {
+            if(this.addFilmBtn.Text == "Clear")
+            {
+                this.resetControls();
+                this.selectedFilm.SelectedIndex = -1;
+                this.addFilmBtn.Text = "Add";
+                this.editFilmBtn.Text = "Start Editing Film";
+                this.addActorBtn.Enabled = true;
+                this.addDirectorBtn.Enabled = true;
+                this.addCategoryBtn.Enabled = true;
+            }
+            else
+            {
 
+            }
         }
 
         private void editFilmBtn_Click(object sender, EventArgs e)
         {
+            this.addActorBtn.Enabled = true;
+            this.addDirectorBtn.Enabled = true;
+            this.addCategoryBtn.Enabled = true;
 
+            this.removeActorBtn.Enabled = true;
+            this.removeDirectorBtn.Enabled = true;
+            this.removeCategoryBtn.Enabled = true;
+
+            this.editFilmBtn.Text = "Edit Film";
         }
 
         private void removeFilmBtn_Click(object sender, EventArgs e)
         {
+            String selectedFilm = (String)this.selectedFilm.SelectedItem;
+            if(this.IsFilmToRemoveValid())
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        String sql1 = "DELETE fa FROM film_actor fa LEFT JOIN film f ON fa.film_id = f.id WHERE f.name = @selectedFilm";
+                        using (SqlCommand command1 = new SqlCommand(sql1, connection))
+                        {
+                            command1.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
+                            command1.Parameters["@selectedFilm"].Value = selectedFilm;
+                            command1.ExecuteReader();
+                        }
 
+                        String sql2 = "DELETE fd FROM film_director fd LEFT JOIN film f ON fd.film_id = f.id WHERE f.name = @selectedFilm";
+                        using (SqlCommand command2 = new SqlCommand(sql2, connection))
+                        {
+                            command2.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
+                            command2.Parameters["@selectedFilm"].Value = selectedFilm;
+                            command2.ExecuteReader();
+                        }
+
+                        String sql3 = "DELETE fc FROM film_category fc LEFT JOIN film f ON fc.film_id = f.id WHERE f.name = @selectedFilm";
+                        using (SqlCommand command3 = new SqlCommand(sql3, connection))
+                        {
+                            command3.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
+                            command3.Parameters["@selectedFilm"].Value = selectedFilm;
+                            command3.ExecuteReader();
+                        }
+
+                        String sql4 = "DELETE FROM film WHERE name = @selectedFilm";
+                        using (SqlCommand command4 = new SqlCommand(sql4, connection))
+                        {
+                            command4.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
+                            command4.Parameters["@selectedFilm"].Value = selectedFilm;
+                            command4.ExecuteReader();
+                        }
+                    }
+                    catch (SqlException ee)
+                    {
+                        MessageBox.Show(ee.Message, "Error Message");
+                    }
+                    finally
+                    {
+                        // Close the connection.
+                        connection.Close();
+                        this.resetControls();
+                        this.refreshData();
+                    }
+                }
+            }
         }
 
         private void removeActorBtn_Click(object sender, EventArgs e)
         {
-
+            if(this.IsActorToRemoveValid())
+            {
+                this.actorsList.Items.Remove(this.actorsList.SelectedItem);
+                if(this.actorsList.Items.Count == 0)
+                {
+                    this.removeActorBtn.Enabled = false;
+                }
+            }
         }
 
         private void addActorBtn_Click(object sender, EventArgs e)
         {
+            String selectedActor = (String)this.selectedActor.SelectedItem;
+            if (this.IsActorToAddValid())
+            {
+                this.actorsList.Items.Add(selectedActor);
+                this.selectedActor.SelectedIndex = -1;
+                this.removeActorBtn.Enabled = true;
 
+            }
         }
 
         private void removeDirectorBtn_Click(object sender, EventArgs e)
         {
-
+            if (this.IsDirectorToRemoveValid())
+            {
+                this.directorsList.Items.Remove(this.directorsList.SelectedItem);
+                if (this.directorsList.Items.Count == 0)
+                {
+                    this.removeDirectorBtn.Enabled = false;
+                }
+            }
         }
 
         private void addDirectorBtn_Click(object sender, EventArgs e)
         {
+            String selectedDirector = (String)this.selectedDirector.SelectedItem;
+            if (this.IsDirectorToAddValid())
+            {
+                this.directorsList.Items.Add(selectedDirector);
+                this.selectedDirector.SelectedIndex = -1;
+                this.removeDirectorBtn.Enabled = true;
 
+            }
         }
 
         private void removeCategoryBtn_Click(object sender, EventArgs e)
         {
-
+            if (this.IsCategoryToRemoveValid())
+            {
+                this.categoriesList.Items.Remove(this.categoriesList.SelectedItem);
+                if (this.categoriesList.Items.Count == 0)
+                {
+                    this.removeCategoryBtn.Enabled = false;
+                }
+            }
         }
 
         private void addCategoryBtn_Click(object sender, EventArgs e)
         {
-
+            String selectedCategory = (String)this.selectedCategory.SelectedItem;
+            if (this.IsCategoryToAddValid())
+            {
+                this.categoriesList.Items.Add(selectedCategory);
+                this.selectedCategory.SelectedIndex = -1;
+                this.removeCategoryBtn.Enabled = true;
+            }
         }
 
         private void Films_Load(object sender, EventArgs e)
@@ -122,15 +385,13 @@ namespace FilmCollectionProject
 
         private void selectedFilm_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(this.selectedFilm.SelectedIndex == -1)
+            {
+                return;
+            }
+
             String selectedFilm = (String)this.selectedFilm.SelectedItem;
-
-            this.title.Text = "";
-            this.duration.Text = "";
-            this.year.Text = "";
-            this.actorsList.Items.Clear();
-            this.directorsList.Items.Clear();
-            this.categoriesList.Items.Clear();
-
+            this.resetControls();
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
                 try
@@ -159,6 +420,21 @@ namespace FilmCollectionProject
                                 {
                                     this.categoriesList.Items.Add(reader.GetString(17));
                                 }
+
+                                this.title.ReadOnly = true;
+                                this.duration.ReadOnly = true;
+                                this.year.ReadOnly = true;
+
+                                this.addFilmBtn.Text = "Clear";
+
+                                this.addActorBtn.Enabled = false;
+                                this.addDirectorBtn.Enabled = false;
+                                this.addCategoryBtn.Enabled = false;
+
+                                this.removeActorBtn.Enabled = false;
+                                this.removeDirectorBtn.Enabled = false;
+                                this.removeCategoryBtn.Enabled = false;
+                                this.editFilmBtn.Enabled = true;
                             }
                         }
                     }
@@ -174,8 +450,6 @@ namespace FilmCollectionProject
                     connection.Close();
                 }
             }
-
-                //this.refreshData();
         }
     }
 }

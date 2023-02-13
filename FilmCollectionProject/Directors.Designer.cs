@@ -42,20 +42,20 @@
             this.removeDirectorBtn = new System.Windows.Forms.Button();
             this.selectedDirector2 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.directorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.directorTableAdapter();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.editDirectorBtn = new System.Windows.Forms.Button();
-            this.addDirectorBtn = new System.Windows.Forms.Button();
             this.lblSelectedDirector = new System.Windows.Forms.Label();
             this.lblDirectorToEdit = new System.Windows.Forms.Label();
             this.lblDirectorToEdit2 = new System.Windows.Forms.Label();
-            this.lblDirectorToAdd = new System.Windows.Forms.Label();
-            this.lblDirectorToAdd2 = new System.Windows.Forms.Label();
             this.directorFirstNameToEdit = new System.Windows.Forms.TextBox();
             this.directorLastNameToEdit = new System.Windows.Forms.TextBox();
+            this.selectedDirector = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.addDirectorBtn = new System.Windows.Forms.Button();
+            this.lblDirectorToAdd = new System.Windows.Forms.Label();
+            this.lblDirectorToAdd2 = new System.Windows.Forms.Label();
             this.directorFirstNameToAdd = new System.Windows.Forms.TextBox();
             this.directorLastNameToAdd = new System.Windows.Forms.TextBox();
-            this.selectedDirector = new System.Windows.Forms.ComboBox();
+            this.directorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.directorTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).BeginInit();
@@ -240,30 +240,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 166);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // directorTableAdapter
-            // 
-            this.directorTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Controls.Add(this.addDirectorBtn, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblDirectorToAdd, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblDirectorToAdd2, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.directorFirstNameToAdd, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.directorLastNameToAdd, 1, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(641, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 166);
-            this.tableLayoutPanel4.TabIndex = 4;
-            // 
             // editDirectorBtn
             // 
             this.editDirectorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -276,19 +252,6 @@
             this.editDirectorBtn.Text = "Edit";
             this.editDirectorBtn.UseVisualStyleBackColor = true;
             this.editDirectorBtn.Click += new System.EventHandler(this.editDirectorBtn_Click);
-            // 
-            // addDirectorBtn
-            // 
-            this.addDirectorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addDirectorBtn.Location = new System.Drawing.Point(459, 3);
-            this.addDirectorBtn.Name = "addDirectorBtn";
-            this.tableLayoutPanel4.SetRowSpan(this.addDirectorBtn, 2);
-            this.addDirectorBtn.Size = new System.Drawing.Size(224, 160);
-            this.addDirectorBtn.TabIndex = 0;
-            this.addDirectorBtn.Text = "Add";
-            this.addDirectorBtn.UseVisualStyleBackColor = true;
-            this.addDirectorBtn.Click += new System.EventHandler(this.addDirectorBtn_Click);
             // 
             // lblSelectedDirector
             // 
@@ -325,6 +288,68 @@
             this.lblDirectorToEdit2.Text = "Director Last Name:";
             this.lblDirectorToEdit2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // directorFirstNameToEdit
+            // 
+            this.directorFirstNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.directorFirstNameToEdit.Location = new System.Drawing.Point(155, 86);
+            this.directorFirstNameToEdit.Multiline = true;
+            this.directorFirstNameToEdit.Name = "directorFirstNameToEdit";
+            this.directorFirstNameToEdit.Size = new System.Drawing.Size(146, 77);
+            this.directorFirstNameToEdit.TabIndex = 4;
+            // 
+            // directorLastNameToEdit
+            // 
+            this.directorLastNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.directorLastNameToEdit.Location = new System.Drawing.Point(307, 86);
+            this.directorLastNameToEdit.Multiline = true;
+            this.directorLastNameToEdit.Name = "directorLastNameToEdit";
+            this.directorLastNameToEdit.Size = new System.Drawing.Size(146, 77);
+            this.directorLastNameToEdit.TabIndex = 5;
+            // 
+            // selectedDirector
+            // 
+            this.selectedDirector.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selectedDirector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectedDirector.DropDownWidth = 200;
+            this.selectedDirector.FormattingEnabled = true;
+            this.selectedDirector.Location = new System.Drawing.Point(3, 86);
+            this.selectedDirector.Name = "selectedDirector";
+            this.selectedDirector.Size = new System.Drawing.Size(146, 28);
+            this.selectedDirector.TabIndex = 6;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.addDirectorBtn, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblDirectorToAdd, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblDirectorToAdd2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.directorFirstNameToAdd, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.directorLastNameToAdd, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(641, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 166);
+            this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // addDirectorBtn
+            // 
+            this.addDirectorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addDirectorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addDirectorBtn.Location = new System.Drawing.Point(459, 3);
+            this.addDirectorBtn.Name = "addDirectorBtn";
+            this.tableLayoutPanel4.SetRowSpan(this.addDirectorBtn, 2);
+            this.addDirectorBtn.Size = new System.Drawing.Size(224, 160);
+            this.addDirectorBtn.TabIndex = 0;
+            this.addDirectorBtn.Text = "Add";
+            this.addDirectorBtn.UseVisualStyleBackColor = true;
+            this.addDirectorBtn.Click += new System.EventHandler(this.addDirectorBtn_Click);
+            // 
             // lblDirectorToAdd
             // 
             this.lblDirectorToAdd.AutoSize = true;
@@ -349,24 +374,6 @@
             this.lblDirectorToAdd2.Text = "Director Last Name:";
             this.lblDirectorToAdd2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // directorFirstNameToEdit
-            // 
-            this.directorFirstNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.directorFirstNameToEdit.Location = new System.Drawing.Point(155, 86);
-            this.directorFirstNameToEdit.Multiline = true;
-            this.directorFirstNameToEdit.Name = "directorFirstNameToEdit";
-            this.directorFirstNameToEdit.Size = new System.Drawing.Size(146, 77);
-            this.directorFirstNameToEdit.TabIndex = 4;
-            // 
-            // directorLastNameToEdit
-            // 
-            this.directorLastNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.directorLastNameToEdit.Location = new System.Drawing.Point(307, 86);
-            this.directorLastNameToEdit.Multiline = true;
-            this.directorLastNameToEdit.Name = "directorLastNameToEdit";
-            this.directorLastNameToEdit.Size = new System.Drawing.Size(146, 77);
-            this.directorLastNameToEdit.TabIndex = 5;
-            // 
             // directorFirstNameToAdd
             // 
             this.directorFirstNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -387,16 +394,9 @@
             this.directorLastNameToAdd.Size = new System.Drawing.Size(222, 77);
             this.directorLastNameToAdd.TabIndex = 4;
             // 
-            // selectedDirector
+            // directorTableAdapter
             // 
-            this.selectedDirector.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectedDirector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.selectedDirector.DropDownWidth = 200;
-            this.selectedDirector.FormattingEnabled = true;
-            this.selectedDirector.Location = new System.Drawing.Point(3, 86);
-            this.selectedDirector.Name = "selectedDirector";
-            this.selectedDirector.Size = new System.Drawing.Size(146, 28);
-            this.selectedDirector.TabIndex = 6;
+            this.directorTableAdapter.ClearBeforeFill = true;
             // 
             // Directors
             // 
