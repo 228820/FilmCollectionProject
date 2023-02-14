@@ -54,6 +54,9 @@
             this.selectedDirector = new System.Windows.Forms.ComboBox();
             this.selectedCategory = new System.Windows.Forms.ComboBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.TextBox();
+            this.duration = new System.Windows.Forms.TextBox();
+            this.year = new System.Windows.Forms.TextBox();
             this.netDataSet = new FilmCollectionProject.netDataSet();
             this.filmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.filmTableAdapter();
@@ -63,9 +66,6 @@
             this.directorTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.directorTableAdapter();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new FilmCollectionProject.netDataSetTableAdapters.categoryTableAdapter();
-            this.title = new System.Windows.Forms.TextBox();
-            this.duration = new System.Windows.Forms.TextBox();
-            this.year = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.netDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
@@ -368,7 +368,7 @@
             this.addCategoryBtn.Name = "addCategoryBtn";
             this.addCategoryBtn.Size = new System.Drawing.Size(328, 59);
             this.addCategoryBtn.TabIndex = 23;
-            this.addCategoryBtn.Text = "Add Director";
+            this.addCategoryBtn.Text = "Add Category";
             this.addCategoryBtn.UseVisualStyleBackColor = true;
             this.addCategoryBtn.Click += new System.EventHandler(this.addCategoryBtn_Click);
             // 
@@ -417,6 +417,40 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // title
+            // 
+            this.title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.title.Location = new System.Drawing.Point(3, 230);
+            this.title.Multiline = true;
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(326, 49);
+            this.title.TabIndex = 28;
+            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // duration
+            // 
+            this.duration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.duration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.duration.Location = new System.Drawing.Point(3, 340);
+            this.duration.Multiline = true;
+            this.duration.Name = "duration";
+            this.duration.Size = new System.Drawing.Size(326, 49);
+            this.duration.TabIndex = 29;
+            this.duration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // year
+            // 
+            this.year.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.year.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.year.Location = new System.Drawing.Point(3, 450);
+            this.year.Multiline = true;
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(326, 49);
+            this.year.TabIndex = 30;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // netDataSet
             // 
             this.netDataSet.DataSetName = "netDataSet";
@@ -457,43 +491,6 @@
             // categoryTableAdapter
             // 
             this.categoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // title
-            // 
-            this.title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.title.Location = new System.Drawing.Point(3, 230);
-            this.title.Multiline = true;
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(326, 49);
-            this.title.TabIndex = 28;
-            this.title.Text = "-";
-            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // duration
-            // 
-            this.duration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.duration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.duration.Location = new System.Drawing.Point(3, 340);
-            this.duration.Multiline = true;
-            this.duration.Name = "duration";
-            this.duration.Size = new System.Drawing.Size(326, 49);
-            this.duration.TabIndex = 29;
-            this.duration.Text = "-";
-            this.duration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // year
-            // 
-            this.year.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.year.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.year.Location = new System.Drawing.Point(3, 450);
-            this.year.Multiline = true;
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(326, 49);
-            this.year.TabIndex = 30;
-            this.year.Text = "-";
-            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Films
             // 
