@@ -71,8 +71,8 @@ namespace FilmCollectionProject
             }
             else
             {
-                String firstName = char.ToUpper(this.directorFirstNameToAdd.Text[0]) + this.directorFirstNameToAdd.Text?.Substring(1)?.ToLower();
-                String lastName = char.ToUpper(this.directorLastNameToAdd.Text[0]) + this.directorLastNameToAdd.Text?.Substring(1)?.ToLower();
+                String firstName = (char.ToUpper(this.directorFirstNameToAdd.Text[0]) + this.directorFirstNameToAdd.Text?.Substring(1)?.ToLower()).Replace(" ", "");
+                String lastName = (char.ToUpper(this.directorLastNameToAdd.Text[0]) + this.directorLastNameToAdd.Text?.Substring(1)?.ToLower()).Replace(" ", "");
                 if (this.selectedDirector.Items.IndexOf(firstName + ' ' + lastName) != -1)
                 {
                     MessageBox.Show("Please enter a different director. This one already exists in db.", "Info");
@@ -81,7 +81,6 @@ namespace FilmCollectionProject
                 else
                 {
                     return true;
-
                 }
             }
         }
@@ -102,8 +101,8 @@ namespace FilmCollectionProject
                 }
                 else
                 {
-                    String firstName = char.ToUpper(this.directorFirstNameToEdit.Text[0]) + this.directorFirstNameToEdit.Text?.Substring(1)?.ToLower();
-                    String lastName = char.ToUpper(this.directorLastNameToEdit.Text[0]) + this.directorLastNameToEdit.Text?.Substring(1)?.ToLower();
+                    String firstName = (char.ToUpper(this.directorFirstNameToEdit.Text[0]) + this.directorFirstNameToEdit.Text?.Substring(1)?.ToLower()).Replace(" ", "");
+                    String lastName = (char.ToUpper(this.directorLastNameToEdit.Text[0]) + this.directorLastNameToEdit.Text?.Substring(1)?.ToLower()).Replace(" ", "");
                     if (this.selectedDirector.Items.IndexOf(firstName + ' ' + lastName) != -1)
                     {
                         MessageBox.Show("Please enter a different director. This one already exists in db.", "Info");
@@ -136,8 +135,8 @@ namespace FilmCollectionProject
         {
             if (this.IsDirectorToAddValid())
             {
-                String firstName = char.ToUpper(this.directorFirstNameToAdd.Text[0]) + this.directorFirstNameToAdd.Text?.Substring(1)?.ToLower();
-                String lastName = char.ToUpper(this.directorLastNameToAdd.Text[0]) + this.directorLastNameToAdd.Text?.Substring(1)?.ToLower();
+                String firstName = (char.ToUpper(this.directorFirstNameToAdd.Text[0]) + this.directorFirstNameToAdd.Text?.Substring(1)?.ToLower()).Replace(" ", "");
+                String lastName = (char.ToUpper(this.directorLastNameToAdd.Text[0]) + this.directorLastNameToAdd.Text?.Substring(1)?.ToLower()).Replace(" ", "");
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
@@ -174,8 +173,8 @@ namespace FilmCollectionProject
             String selectedDirector = (String)this.selectedDirector.SelectedItem;
             if (this.IsDirectorToEditValid())
             {
-                String firstName2 = char.ToUpper(this.directorFirstNameToEdit.Text[0]) + this.directorFirstNameToEdit.Text?.Substring(1)?.ToLower();
-                String lastName2 = char.ToUpper(this.directorLastNameToEdit.Text[0]) + this.directorLastNameToEdit.Text?.Substring(1)?.ToLower();
+                String firstName2 = (char.ToUpper(this.directorFirstNameToEdit.Text[0]) + this.directorFirstNameToEdit.Text?.Substring(1)?.ToLower()).Replace(" ", "");
+                String lastName2 = (char.ToUpper(this.directorLastNameToEdit.Text[0]) + this.directorLastNameToEdit.Text?.Substring(1)?.ToLower()).Replace(" ", "");
                 String firstName = selectedDirector.Split(' ')[0];
                 String lastName = selectedDirector.Split(' ')[1];
                 using (SqlConnection connection = new SqlConnection(this.connectionString))

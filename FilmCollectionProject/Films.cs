@@ -625,29 +625,17 @@ namespace FilmCollectionProject
                     try
                     {
                         connection.Open();
-                        String sql1 = "DELETE fa FROM film_actor fa LEFT JOIN film f ON fa.film_id = f.id WHERE f.name = @selectedFilm";
-                        using (SqlCommand command1 = new SqlCommand(sql1, connection))
-                        {
-                            command1.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
-                            command1.Parameters["@selectedFilm"].Value = selectedFilm;
-                            command1.ExecuteReader();
-                        }
+                        this.getFilmId(selectedFilm, connection);
 
-                        String sql2 = "DELETE fd FROM film_director fd LEFT JOIN film f ON fd.film_id = f.id WHERE f.name = @selectedFilm";
-                        using (SqlCommand command2 = new SqlCommand(sql2, connection))
-                        {
-                            command2.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
-                            command2.Parameters["@selectedFilm"].Value = selectedFilm;
-                            command2.ExecuteReader();
-                        }
+                        String sql1 = "DELETE FROM film_actor WHERE film_id = @filmId";
+                        this.removeFilmRelation(sql1, connection);
+     
 
-                        String sql3 = "DELETE fc FROM film_category fc LEFT JOIN film f ON fc.film_id = f.id WHERE f.name = @selectedFilm";
-                        using (SqlCommand command3 = new SqlCommand(sql3, connection))
-                        {
-                            command3.Parameters.Add(new SqlParameter("@selectedFilm", SqlDbType.VarChar));
-                            command3.Parameters["@selectedFilm"].Value = selectedFilm;
-                            command3.ExecuteReader();
-                        }
+                        String sql2 = "DELETE FROM film_director WHERE film_id = @filmId";
+                        this.removeFilmRelation(sql2, connection);
+
+                        String sql3 = "DELETE FROM film_category WHERE film_id = @filmId";
+                        this.removeFilmRelation(sql3, connection);
 
                         String sql4 = "DELETE FROM film WHERE name = @selectedFilm";
                         using (SqlCommand command4 = new SqlCommand(sql4, connection))

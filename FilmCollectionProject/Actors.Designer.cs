@@ -281,6 +281,7 @@
             this.actorFirstNameToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.actorFirstNameToAdd.Location = new System.Drawing.Point(3, 86);
             this.actorFirstNameToAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.actorFirstNameToAdd.MaxLength = 50;
             this.actorFirstNameToAdd.Multiline = true;
             this.actorFirstNameToAdd.Name = "actorFirstNameToAdd";
             this.actorFirstNameToAdd.Size = new System.Drawing.Size(222, 74);
@@ -289,8 +290,10 @@
             // actorLastNameToAdd
             // 
             this.actorLastNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.actorLastNameToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.actorLastNameToAdd.Location = new System.Drawing.Point(231, 86);
             this.actorLastNameToAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.actorLastNameToAdd.MaxLength = 80;
             this.actorLastNameToAdd.Multiline = true;
             this.actorLastNameToAdd.Name = "actorLastNameToAdd";
             this.actorLastNameToAdd.Size = new System.Drawing.Size(222, 74);
@@ -376,6 +379,7 @@
             this.actorLastNameToEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.actorLastNameToEdit.Location = new System.Drawing.Point(307, 86);
             this.actorLastNameToEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.actorLastNameToEdit.MaxLength = 80;
             this.actorLastNameToEdit.Multiline = true;
             this.actorLastNameToEdit.Name = "actorLastNameToEdit";
             this.actorLastNameToEdit.Size = new System.Drawing.Size(146, 74);
@@ -387,6 +391,7 @@
             this.actorFirstNameToEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.actorFirstNameToEdit.Location = new System.Drawing.Point(155, 86);
             this.actorFirstNameToEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.actorFirstNameToEdit.MaxLength = 50;
             this.actorFirstNameToEdit.Multiline = true;
             this.actorFirstNameToEdit.Name = "actorFirstNameToEdit";
             this.actorFirstNameToEdit.Size = new System.Drawing.Size(146, 74);

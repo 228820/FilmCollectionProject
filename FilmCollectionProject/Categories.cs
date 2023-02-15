@@ -129,9 +129,9 @@ namespace FilmCollectionProject
 
         private void addCategoryBtn_Click(object sender, EventArgs e)
         {
-            String categoryName = char.ToUpper(this.categoryName.Text[0]) + this.categoryName.Text?.Substring(1)?.ToLower();
             if (this.IsCategoryNameToAddValid())
             {
+                String categoryName = char.ToUpper(this.categoryName.Text[0]) + this.categoryName.Text?.Substring(1)?.ToLower();
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
@@ -163,10 +163,10 @@ namespace FilmCollectionProject
 
         private void editCategoryBtn_Click(object sender, EventArgs e)
         {
-            String categoryName = char.ToUpper(this.categoryName2.Text[0]) + this.categoryName2.Text?.Substring(1)?.ToLower();
-            String selectedCategory = (String)this.selectedCategory.SelectedItem;
             if (this.IsCategoryNameToEditValid())
             {
+                String categoryName = char.ToUpper(this.categoryName2.Text[0]) + this.categoryName2.Text?.Substring(1)?.ToLower();
+                String selectedCategory = (String)this.selectedCategory.SelectedItem;
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try
@@ -201,9 +201,9 @@ namespace FilmCollectionProject
 
         private void removeCategoryBtn_Click(object sender, EventArgs e)
         {
-            String selectedCategory = (String)this.selectedCategory2.SelectedItem;
             if (this.IsCategoryNameToRemoveValid())
             {
+                String selectedCategory = (String)this.selectedCategory2.SelectedItem;
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     try

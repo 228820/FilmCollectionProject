@@ -292,6 +292,7 @@
             // 
             this.directorFirstNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directorFirstNameToEdit.Location = new System.Drawing.Point(155, 86);
+            this.directorFirstNameToEdit.MaxLength = 50;
             this.directorFirstNameToEdit.Multiline = true;
             this.directorFirstNameToEdit.Name = "directorFirstNameToEdit";
             this.directorFirstNameToEdit.Size = new System.Drawing.Size(146, 77);
@@ -301,6 +302,7 @@
             // 
             this.directorLastNameToEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directorLastNameToEdit.Location = new System.Drawing.Point(307, 86);
+            this.directorLastNameToEdit.MaxLength = 80;
             this.directorLastNameToEdit.Multiline = true;
             this.directorLastNameToEdit.Name = "directorLastNameToEdit";
             this.directorLastNameToEdit.Size = new System.Drawing.Size(146, 77);
@@ -379,6 +381,7 @@
             this.directorFirstNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directorFirstNameToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.directorFirstNameToAdd.Location = new System.Drawing.Point(3, 86);
+            this.directorFirstNameToAdd.MaxLength = 50;
             this.directorFirstNameToAdd.Multiline = true;
             this.directorFirstNameToAdd.Name = "directorFirstNameToAdd";
             this.directorFirstNameToAdd.Size = new System.Drawing.Size(222, 77);
@@ -389,6 +392,7 @@
             this.directorLastNameToAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directorLastNameToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.directorLastNameToAdd.Location = new System.Drawing.Point(231, 86);
+            this.directorLastNameToAdd.MaxLength = 80;
             this.directorLastNameToAdd.Multiline = true;
             this.directorLastNameToAdd.Name = "directorLastNameToAdd";
             this.directorLastNameToAdd.Size = new System.Drawing.Size(222, 77);

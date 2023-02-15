@@ -422,6 +422,7 @@
             this.title.Dock = System.Windows.Forms.DockStyle.Fill;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.title.Location = new System.Drawing.Point(3, 230);
+            this.title.MaxLength = 255;
             this.title.Multiline = true;
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(326, 49);
