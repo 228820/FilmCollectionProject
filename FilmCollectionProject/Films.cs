@@ -87,26 +87,41 @@ namespace FilmCollectionProject
 
         private bool IsFilmToAddValid()
         {
-            Console.WriteLine(this.title.Text);
-            Console.WriteLine(this.year.Text);
-            Console.WriteLine(this.duration.Text);
-
-            for (int i = 0; i < this.actorsList.Items.Count; i++)
+            if (this.title.Text == "" || this.year.Text == "" || this.duration.Text == "")
             {
-                Console.WriteLine(this.actorsList.Items[i]);
+                MessageBox.Show("Please enter film info.", "Info");
+                return false;
             }
-
-            for (int i = 0; i < this.directorsList.Items.Count; i++)
+            else
             {
-                Console.WriteLine(this.directorsList.Items[i]);
+                if (this.selectedFilm.Items.IndexOf(this.title.Text) != -1)
+                {
+                    MessageBox.Show("Please enter a different film. This one already exists in db.", "Info");
+                    return false;
+                }
+                else
+                {
+                    if (this.actorsList.Items.Count == 0)
+                    {
+                        MessageBox.Show("Please enter an actor.", "Info");
+                        return false;
+                    }
+                    else if(this.directorsList.Items.Count == 0)
+                    {
+                        MessageBox.Show("Please enter a director.", "Info");
+                        return false;
+                    }
+                    else if(this.categoriesList.Items.Count == 0)
+                    {
+                        MessageBox.Show("Please enter a category.", "Info");
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
             }
-
-            for (int i = 0; i < this.categoriesList.Items.Count; i++)
-            {
-                Console.WriteLine(this.categoriesList.Items[i]);
-            }
-
-            return false;
         }
 
         private bool IsFilmToRemoveValid()
@@ -243,184 +258,183 @@ namespace FilmCollectionProject
                 this.selectedFilm.SelectedIndex = -1;
                 this.addFilmBtn.Text = "Add";
                 this.editFilmBtn.Text = "Start Editing Film";
+                this.editFilmBtn.Enabled = false;
                 this.addActorBtn.Enabled = true;
                 this.addDirectorBtn.Enabled = true;
                 this.addCategoryBtn.Enabled = true;
             }
             else
             {
-                this.IsFilmToAddValid();
-                String name = this.title.Text;
-                String year = this.year.Text;
-                String duration = this.duration.Text;
+                if(this.IsFilmToAddValid()) {
+                    String name = this.title.Text;
+                    String year = this.year.Text;
+                    String duration = this.duration.Text;
 
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    try
+                    using (SqlConnection connection = new SqlConnection(this.connectionString))
                     {
-                        connection.Open();
-                        String sql1 = "INSERT INTO FILM(duration ,name, year) VALUES(@duration, @name, @year)";
-                        using (SqlCommand command1 = new SqlCommand(sql1, connection))
+                        try
                         {
-                            command1.Parameters.Add(new SqlParameter("@duration", SqlDbType.VarChar));
-                            command1.Parameters["@duration"].Value = duration;
-                            command1.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
-                            command1.Parameters["@name"].Value = name;
-                            command1.Parameters.Add(new SqlParameter("@year", SqlDbType.VarChar));
-                            command1.Parameters["@year"].Value = year;
-                            command1.ExecuteReader();
-                        }
-
-                        String sql2 = "SELECT * FROM film WHERE name = @name";
-                        String filmId = "";
-                        using (SqlCommand command2 = new SqlCommand(sql2, connection))
-                        {
-                            command2.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
-                            command2.Parameters["@name"].Value = name;
-                            using (SqlDataReader reader = command2.ExecuteReader())
+                            connection.Open();
+                            String sql1 = "INSERT INTO FILM(duration ,name, year) VALUES(@duration, @name, @year)";
+                            using (SqlCommand command1 = new SqlCommand(sql1, connection))
                             {
-                                while (reader.Read())
-                                {
-                                    filmId = reader[0].ToString();
-                                }
+                                command1.Parameters.Add(new SqlParameter("@duration", SqlDbType.VarChar));
+                                command1.Parameters["@duration"].Value = duration;
+                                command1.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
+                                command1.Parameters["@name"].Value = name;
+                                command1.Parameters.Add(new SqlParameter("@year", SqlDbType.VarChar));
+                                command1.Parameters["@year"].Value = year;
+                                command1.ExecuteReader();
                             }
-                        }
 
-                        // ACTORS SECTION START
-
-                        String sql3 = "SELECT * FROM actor WHERE first_name = @firstName AND last_name = @lastName";
-                        List<string> actorsIds = new List<string>();
-                        using (SqlCommand command3 = new SqlCommand(sql3, connection))
-                        {
-                            command3.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
-                            command3.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
-
-                            for (int i = 0; i < this.actorsList.Items.Count; i++)
+                            String sql2 = "SELECT * FROM film WHERE name = @name";
+                            String filmId = "";
+                            using (SqlCommand command2 = new SqlCommand(sql2, connection))
                             {
-                                String firstName = this.actorsList.Items[i].ToString().Split(' ')[0];
-                                String lastName = this.actorsList.Items[i].ToString().Split(' ')[1];
-
-                                command3.Parameters["@firstName"].Value = firstName;
-                                command3.Parameters["@lastName"].Value = lastName;
-                                using (SqlDataReader reader = command3.ExecuteReader())
+                                command2.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
+                                command2.Parameters["@name"].Value = name;
+                                using (SqlDataReader reader = command2.ExecuteReader())
                                 {
                                     while (reader.Read())
                                     {
-                                        actorsIds.Add(reader[0].ToString());
-
+                                        filmId = reader[0].ToString();
                                     }
                                 }
                             }
-                        }
 
-                        String sql4 = "INSERT INTO film_actor(film_id, actor_id) VALUES(@filmId, @actorId)";
-                        using (SqlCommand command4 = new SqlCommand(sql4, connection))
-                        {
-                            command4.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
-                            command4.Parameters.Add(new SqlParameter("@actorId", SqlDbType.VarChar));
-                            command4.Parameters["@filmId"].Value = filmId;
+                            // ACTORS SECTION START
 
-                            for (int i = 0; i < actorsIds.Count; i++)
+                            String sql3 = "SELECT * FROM actor WHERE first_name = @firstName AND last_name = @lastName";
+                            List<string> actorsIds = new List<string>();
+                            using (SqlCommand command3 = new SqlCommand(sql3, connection))
                             {
-                                command4.Parameters["@actorId"].Value = actorsIds[i];
-                                using (SqlDataReader reader = command4.ExecuteReader()) { }
-                            }
-                        }
+                                command3.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
+                                command3.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
 
-                        // ACTORS SECTION END
-
-                        // DIRECTORS SECTION START
-
-                        String sql5 = "SELECT * FROM director WHERE first_name = @firstName AND last_name = @lastName";
-                        List<string> directorsIds = new List<string>();
-                        using (SqlCommand command5 = new SqlCommand(sql5, connection))
-                        {
-                            command5.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
-                            command5.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
-
-                            for (int i = 0; i < this.directorsList.Items.Count; i++)
-                            {
-                                String firstName = this.directorsList.Items[i].ToString().Split(' ')[0];
-                                String lastName = this.directorsList.Items[i].ToString().Split(' ')[1];
-
-                                command5.Parameters["@firstName"].Value = firstName;
-                                command5.Parameters["@lastName"].Value = lastName;
-                                using (SqlDataReader reader = command5.ExecuteReader())
+                                for (int i = 0; i < this.actorsList.Items.Count; i++)
                                 {
-                                    while (reader.Read())
+                                    String firstName = this.actorsList.Items[i].ToString().Split(' ')[0];
+                                    String lastName = this.actorsList.Items[i].ToString().Split(' ')[1];
+
+                                    command3.Parameters["@firstName"].Value = firstName;
+                                    command3.Parameters["@lastName"].Value = lastName;
+                                    using (SqlDataReader reader = command3.ExecuteReader())
                                     {
-                                        directorsIds.Add(reader[0].ToString());
+                                        while (reader.Read())
+                                        {
+                                            actorsIds.Add(reader[0].ToString());
+
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        String sql6 = "INSERT INTO film_director(film_id, director_id) VALUES(@filmId, @directorId)";
-                        using (SqlCommand command6 = new SqlCommand(sql6, connection))
-                        {
-                            command6.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
-                            command6.Parameters.Add(new SqlParameter("@directorId", SqlDbType.VarChar));
-                            command6.Parameters["@filmId"].Value = filmId;
-
-                            for (int i = 0; i < directorsIds.Count; i++)
+                            String sql4 = "INSERT INTO film_actor(film_id, actor_id) VALUES(@filmId, @actorId)";
+                            using (SqlCommand command4 = new SqlCommand(sql4, connection))
                             {
-                                command6.Parameters["@directorId"].Value = directorsIds[i];
-                                using (SqlDataReader reader = command6.ExecuteReader()) { }
-                            }
-                        }
+                                command4.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
+                                command4.Parameters.Add(new SqlParameter("@actorId", SqlDbType.VarChar));
+                                command4.Parameters["@filmId"].Value = filmId;
 
-                        // DIRECTORS SECTION END
-
-                        // CATEGORIES SECTION START
-
-                        String sql7 = "SELECT * FROM category WHERE name = @name";
-                        List<string> categoriesIds = new List<string>();
-                        using (SqlCommand command7 = new SqlCommand(sql7, connection))
-                        {
-                            command7.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
-
-                            for (int i = 0; i < this.categoriesList.Items.Count; i++)
-                            {
-                                command7.Parameters["@name"].Value = categoriesList.Items[i];
-                                using (SqlDataReader reader = command7.ExecuteReader())
+                                for (int i = 0; i < actorsIds.Count; i++)
                                 {
-                                    while (reader.Read())
+                                    command4.Parameters["@actorId"].Value = actorsIds[i];
+                                    using (SqlDataReader reader = command4.ExecuteReader()) { }
+                                }
+                            }
+
+                            // ACTORS SECTION END
+
+                            // DIRECTORS SECTION START
+
+                            String sql5 = "SELECT * FROM director WHERE first_name = @firstName AND last_name = @lastName";
+                            List<string> directorsIds = new List<string>();
+                            using (SqlCommand command5 = new SqlCommand(sql5, connection))
+                            {
+                                command5.Parameters.Add(new SqlParameter("@firstName", SqlDbType.VarChar));
+                                command5.Parameters.Add(new SqlParameter("@lastName", SqlDbType.VarChar));
+
+                                for (int i = 0; i < this.directorsList.Items.Count; i++)
+                                {
+                                    String firstName = this.directorsList.Items[i].ToString().Split(' ')[0];
+                                    String lastName = this.directorsList.Items[i].ToString().Split(' ')[1];
+
+                                    command5.Parameters["@firstName"].Value = firstName;
+                                    command5.Parameters["@lastName"].Value = lastName;
+                                    using (SqlDataReader reader = command5.ExecuteReader())
                                     {
-                                        categoriesIds.Add(reader[0].ToString());
+                                        while (reader.Read())
+                                        {
+                                            directorsIds.Add(reader[0].ToString());
+                                        }
                                     }
                                 }
                             }
-                        }
 
-
-                        String sql8 = "INSERT INTO film_category(film_id, category_id) VALUES(@filmId, @categoryId)";
-                        using (SqlCommand command8 = new SqlCommand(sql8, connection))
-                        {
-                            command8.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
-                            command8.Parameters.Add(new SqlParameter("@categoryId", SqlDbType.VarChar));
-                            command8.Parameters["@filmId"].Value = filmId;
-
-                            for (int i = 0; i < categoriesIds.Count; i++)
+                            String sql6 = "INSERT INTO film_director(film_id, director_id) VALUES(@filmId, @directorId)";
+                            using (SqlCommand command6 = new SqlCommand(sql6, connection))
                             {
-                                command8.Parameters["@categoryId"].Value = categoriesIds[i];
-                                using (SqlDataReader reader = command8.ExecuteReader()) { }
+                                command6.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
+                                command6.Parameters.Add(new SqlParameter("@directorId", SqlDbType.VarChar));
+                                command6.Parameters["@filmId"].Value = filmId;
+
+                                for (int i = 0; i < directorsIds.Count; i++)
+                                {
+                                    command6.Parameters["@directorId"].Value = directorsIds[i];
+                                    using (SqlDataReader reader = command6.ExecuteReader()) { }
+                                }
                             }
+
+                            // DIRECTORS SECTION END
+
+                            // CATEGORIES SECTION START
+
+                            String sql7 = "SELECT * FROM category WHERE name = @name";
+                            List<string> categoriesIds = new List<string>();
+                            using (SqlCommand command7 = new SqlCommand(sql7, connection))
+                            {
+                                command7.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
+
+                                for (int i = 0; i < this.categoriesList.Items.Count; i++)
+                                {
+                                    command7.Parameters["@name"].Value = categoriesList.Items[i];
+                                    using (SqlDataReader reader = command7.ExecuteReader())
+                                    {
+                                        while (reader.Read())
+                                        {
+                                            categoriesIds.Add(reader[0].ToString());
+                                        }
+                                    }
+                                }
+                            }
+
+                            String sql8 = "INSERT INTO film_category(film_id, category_id) VALUES(@filmId, @categoryId)";
+                            using (SqlCommand command8 = new SqlCommand(sql8, connection))
+                            {
+                                command8.Parameters.Add(new SqlParameter("@filmId", SqlDbType.VarChar));
+                                command8.Parameters.Add(new SqlParameter("@categoryId", SqlDbType.VarChar));
+                                command8.Parameters["@filmId"].Value = filmId;
+
+                                for (int i = 0; i < categoriesIds.Count; i++)
+                                {
+                                    command8.Parameters["@categoryId"].Value = categoriesIds[i];
+                                    using (SqlDataReader reader = command8.ExecuteReader()) { }
+                                }
+                            }
+
+                            // CATEGORIES SECTION END
                         }
-
-                        // CATEGORIES SECTION END
-
-
-                    }
-                    catch (SqlException ee)
-                    {
-                        MessageBox.Show(ee.Message, "Error Message");
-                    }
-                    finally
-                    {
-                        // Close the connection.
-                        connection.Close();
-                        this.resetControls();
-                        this.refreshData();
+                        catch (SqlException ee)
+                        {
+                            MessageBox.Show(ee.Message, "Error Message");
+                        }
+                        finally
+                        {
+                            // Close the connection.
+                            connection.Close();
+                            this.resetControls();
+                            this.refreshData();
+                        }
                     }
                 }
             }
@@ -498,6 +512,7 @@ namespace FilmCollectionProject
                         connection.Close();
                         this.resetControls();
                         this.refreshData();
+                        this.editFilmBtn.Enabled = false;
                     }
                 }
             }

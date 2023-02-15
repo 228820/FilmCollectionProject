@@ -81,7 +81,6 @@ namespace FilmCollectionProject
                 else
                 {
                     return true;
-
                 }
             }
         }
